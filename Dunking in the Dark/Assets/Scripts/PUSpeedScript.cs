@@ -36,7 +36,10 @@ public class PUSpeedScript : MonoBehaviour
                 player = collision.gameObject;
                 ogSpeed = player.GetComponent<BallMovement>().speed;
             }
-            // else debuff 
+            // else debuff TODO
+            // find other player(s)
+            // set 'player' var to chosen player 
+            // get ogspeed of player 
 
             StartCoroutine(StartEffect()); 
         }
