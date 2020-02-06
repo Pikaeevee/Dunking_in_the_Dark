@@ -6,7 +6,7 @@ public class BallMovement : MonoBehaviour
 {
     public float speed = 10.0f;
     public float jumpSpeed = 8.0f;
-    public float stickySpeed = 2.0f; 
+    public float stickySpeed = 0.5f; // multiplier to normal velocity
 
     public bool onIce = false;
     public bool onSticky = false; 
@@ -26,13 +26,15 @@ public class BallMovement : MonoBehaviour
         float velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         // check for different platforms 
+        if (onSticky)
+        {
+            velocity *= stickySpeed; // slows down 
+        }
+
         if (onIce)
         {
             rb.AddForce(new Vector2(velocity, currPos.y));
-        }
-        else if (onSticky) {
-            speed = stickySpeed; 
-        }
+        } 
         else
         {
             transform.position = new Vector2(currPos.x + velocity, currPos.y); 
