@@ -2,7 +2,7 @@
     "name": "Player1 Input",
     "maps": [
         {
-            "name": "Player1",
+            "name": "Player",
             "id": "4288f7cf-344c-4201-ae35-2b3ed537d4ac",
             "actions": [
                 {
@@ -29,7 +29,7 @@
                     "path": "<Joystick>/stick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "GameController",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -40,7 +40,7 @@
                     "path": "<Pen>/barrel3",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "GameController",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -48,5 +48,11 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "GameController",
+            "bindingGroup": "GameController",
+            "devices": []
+        }
+    ]
 }
