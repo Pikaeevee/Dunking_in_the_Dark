@@ -60,12 +60,12 @@ Shader "Unlit/Darkness"
 
 				float4 frag(vertexOutput input) : COLOR
 				{
-					float distOne = distance(input.position_in_world_space,
-					_PosOne);
-					float distTwo = distance(input.position_in_world_space,
-					_PosTwo);
-					float distThree = distance(input.position_in_world_space,
-						_PosGoal);
+					float distOne = distance(input.position_in_world_space.rg,
+					_PosOne.rg);
+					float distTwo = distance(input.position_in_world_space.rg,
+					_PosTwo.rg);
+					float distThree = distance(input.position_in_world_space.rg,
+						_PosGoal.rg);
 
 					float hasOne = step(_OneRad, distOne);
 					float hasTwo = step(_TwoRad, distTwo);

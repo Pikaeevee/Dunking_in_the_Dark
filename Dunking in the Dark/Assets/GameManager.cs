@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -22,15 +24,27 @@ public class GameManager : MonoBehaviour
     private bool lightsOn = true;
     private float lightCounter;
 
+    [SerializeField] private bool respawnRandomly;
+    [SerializeField] private Vector2 respawnBoxDimensions;
+    [SerializeField] private Vector2[] respawnPoints;
+
     //Our Serialized Objects
     [SerializeField] private GameObject darknessPlane;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI p1Text;
     [SerializeField] private TextMeshProUGUI p2Text;
-
+    
+    //Our players
+    private GameObject p1;
+    private GameObject p2;
+    
     // Start is called before the first frame update
     void Start()
     {
+        //Get other objects
+        p1 = GameObject.FindGameObjectWithTag("Player1");
+        p2 = GameObject.FindGameObjectWithTag("Player2");
+        
         lightCounter = lightsOnTime;
         StartCoroutine("GameTimeController");
         SetLights();
@@ -118,5 +132,37 @@ public class GameManager : MonoBehaviour
     {
         p1Text.SetText("Player 1\n" + p1Score);
         p2Text.SetText("Player 2\n" + p2Score);
+        
+        //Set the players positions!
+        Vector3 newPos = Vector3.zero;
+        if (respawnRandomly)
+        {
+            float x = transform.position.x + Random.Range(-1 * respawnBoxDimensions.x, respawnBoxDimensions.x);
+            float y = transform.position.y + Random.Range(-1 * respawnBoxDimensions.y, respawnBoxDimensions.y);
+            newPos = new Vector3(x, y, 2);
+        }
+        else
+        {
+            newPos = respawnPoints[Random.Range(0, respawnPoints.Length)];
+        }
+
+        p1.transform.position = newPos + new Vector3(-1, 0, 0);
+        p2.transform.position = newPos + new Vector3(1, 0, 0);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        if (respawnRandomly)
+        {
+            Gizmos.DrawWireCube(transform.position, new Vector3(respawnBoxDimensions.x, respawnBoxDimensions.y, .1f));
+        }
+        else
+        {
+            foreach (Vector3 v in respawnPoints)
+            {
+                Gizmos.DrawWireSphere(v, .2f);
+            }
+        }
     }
 }

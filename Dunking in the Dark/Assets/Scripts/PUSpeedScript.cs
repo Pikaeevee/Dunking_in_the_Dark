@@ -29,7 +29,7 @@ public class PUSpeedScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            gameObject.SetActive(false); // disable powerup 
+            GetComponent<SpriteRenderer>().enabled = false;// disable powerup 
 
             if (!enemyDebuff)
             {

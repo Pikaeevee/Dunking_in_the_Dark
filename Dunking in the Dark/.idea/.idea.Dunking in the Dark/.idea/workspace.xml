@@ -28,9 +28,10 @@
         <option value="$PROJECT_DIR$/Assets/Shaders/2D Glow.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
         <option value="$PROJECT_DIR$/Assets/DetectScoring.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FollowPlayers.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/Darkness.shader" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
       </list>
     </option>
@@ -94,6 +95,7 @@
       <workItem from="1581191496948" duration="2976000" />
       <workItem from="1581216513282" duration="3870000" />
       <workItem from="1581262847379" duration="1112000" />
+      <workItem from="1581268654415" duration="1928000" />
     </task>
     <servers />
   </component>
