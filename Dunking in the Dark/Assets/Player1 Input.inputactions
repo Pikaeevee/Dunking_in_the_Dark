@@ -1,0 +1,52 @@
+{
+    "name": "Player1 Input",
+    "maps": [
+        {
+            "name": "Player1",
+            "id": "4288f7cf-344c-4201-ae35-2b3ed537d4ac",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "e6446062-ebc8-48e0-b88c-3f77dcf09585",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "e5619e37-30d0-4e86-8f36-efae87555274",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "862071cc-1ca0-4f8e-95c1-2fb0a5df0a39",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b21df5d-c5b3-4c15-bc5e-85c66da0c20a",
+                    "path": "<Pen>/barrel3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
