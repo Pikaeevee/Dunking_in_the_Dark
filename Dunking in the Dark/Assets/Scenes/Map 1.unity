@@ -454,7 +454,7 @@ MonoBehaviour:
   lightsOffTime: 10
   lastXLight: 20
   respawnRandomly: 0
-  respawnBoxDimensions: {x: 4, y: 4}
+  respawnBoxDimensions: {x: 0, y: 0}
   respawnPoints:
   - {x: 12.34, y: -8.81}
   - {x: -12.93, y: 4.42}
