@@ -12,11 +12,12 @@ public class PUSpeedScript : MonoBehaviour
     public bool enemyDebuff = false;
 
     private GameObject player; 
-    private float ogSpeed; 
+    private float ogSpeed;
+    public AudioSource powerupSFX;
 
     void Start()
     {
-        
+        powerupSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,10 +28,11 @@ public class PUSpeedScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        powerupSFX.Play();
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<Renderer>().enabled = false;
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            gameObject.SetActive(false); // disable powerup 
-
             if (!enemyDebuff)
             {
                 player = collision.gameObject;
@@ -52,6 +54,7 @@ public class PUSpeedScript : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         player.GetComponent<BallMovement>().speed = ogSpeed;
+        gameObject.SetActive(false); // disable powerup 
 
         Destroy(this.gameObject); 
     }
