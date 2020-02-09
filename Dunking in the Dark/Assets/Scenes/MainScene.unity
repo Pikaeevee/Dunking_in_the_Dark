@@ -761,6 +761,9 @@ MonoBehaviour:
   lightsOnTime: 10
   lightsOffTime: 10
   lastXLight: 20
+  respawnRandomly: 0
+  respawnBoxDimensions: {x: 0, y: 0}
+  respawnPoints: []
   darknessPlane: {fileID: 1766671523}
   scoreText: {fileID: 836893607}
   p1Text: {fileID: 1738163820}
@@ -928,12 +931,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player 2
+  m_text: 'PLAYER 2
 
     0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec8217f78c8434416b3efef6ca54ca37, type: 2}
+  m_sharedMaterial: {fileID: -3638663652406166287, guid: ec8217f78c8434416b3efef6ca54ca37,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1280,8 +1284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 10, y: -50}
+  m_SizeDelta: {x: 517.8, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &836893607
 MonoBehaviour:
@@ -1301,12 +1305,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time Remaing:
+  m_text: 'TIME REMAINING:
 
     50'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec8217f78c8434416b3efef6ca54ca37, type: 2}
+  m_sharedMaterial: {fileID: -3638663652406166287, guid: ec8217f78c8434416b3efef6ca54ca37,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1372,7 +1377,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 836893607}
-    characterCount: 16
+    characterCount: 18
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -2540,12 +2545,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player 1
+  m_text: 'PLAYER 1
 
     5 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec8217f78c8434416b3efef6ca54ca37, type: 2}
+  m_sharedMaterial: {fileID: -3638663652406166287, guid: ec8217f78c8434416b3efef6ca54ca37,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

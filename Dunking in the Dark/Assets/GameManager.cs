@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     private void SetTimer()
     {
         //Stub for setting the time!
-        scoreText.SetText("Time Left:\n" + (int) gameTime);
+        scoreText.SetText("TIME LEFT:\n" + (int) gameTime);
     }
 
     //TODO: Fill out my stubs!
@@ -130,8 +130,8 @@ public class GameManager : MonoBehaviour
 
     public void updateScore()
     {
-        p1Text.SetText("Player 1\n" + p1Score);
-        p2Text.SetText("Player 2\n" + p2Score);
+        p1Text.SetText("PLAYER 1\n" + p1Score);
+        p2Text.SetText("PLAYER 2\n" + p2Score);
         
         //Set the players positions!
         Vector3 newPos = Vector3.zero;
