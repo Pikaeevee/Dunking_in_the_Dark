@@ -29,10 +29,11 @@ public class PUSpeedScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         powerupSFX.Play();
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        gameObject.GetComponent<Renderer>().enabled = false;
+
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.GetComponent<Renderer>().enabled = false;
             if (!enemyDebuff)
             {
                 player = collision.gameObject;
