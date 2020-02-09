@@ -4,6 +4,7 @@ using System.Diagnostics;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,6 +42,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!respawnRandomly && respawnPoints.Length == 0)
+        {
+            Debug.LogError("GameManager must have points chosen for non-random spawning!");
+            Debug.Break();
+        }
         //Get other objects
         p1 = GameObject.FindGameObjectWithTag("Player1");
         p2 = GameObject.FindGameObjectWithTag("Player2");
@@ -65,7 +71,6 @@ public class GameManager : MonoBehaviour
             SetTimer();
             gameTime -= delta;
             lightCounter -= delta;
-            print("LightCounter is " + lightCounter);
             if (lightCounter < 0)
             {
                 print("Switching lights!");
