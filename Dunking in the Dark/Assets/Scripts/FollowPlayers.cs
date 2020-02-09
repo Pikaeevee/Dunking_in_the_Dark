@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,14 +24,16 @@ public class FollowPlayers : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         //Caclulate where we need to be, and how big
-        midpoint = ((p1.transform.position.normalized + p2.transform.position) / 2) + new Vector3(0, 0, zOffset);
+        midpoint = ((p1.transform.position + p2.transform.position) / 2) + new Vector3(0, 0, zOffset);
         dist = sizeScale * Vector3.Distance(p1.transform.position, p2.transform.position) + sizeOffset;
 
         //Set the those sizes and positions
         cam.orthographicSize = dist;
         transform.position = Vector3.Lerp(transform.position, midpoint, lerpAmount);
     }
+
+    
 }

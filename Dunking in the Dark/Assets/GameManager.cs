@@ -1,28 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameManager Instance;
-    public GameManager instance
-    {
-        get
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            return Instance;
-        }
-        set
-        {
-            Instance = value;
-        }
-    }
+    public static GameManager instance;
 
-    //Lights and Timing
+        //Lights and Timing
     [SerializeField] private float gameTime;
+
+    [HideInInspector] public float p1Score;
+    [HideInInspector] public float p2Score;
 
     //Dangerous variable, the delta of our timer
     private float delta = .1f;
@@ -33,9 +22,11 @@ public class GameManager : MonoBehaviour
     private bool lightsOn = true;
     private float lightCounter;
 
-    //Our actual light object
+    //Our Serialized Objects
     [SerializeField] private GameObject darknessPlane;
-
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI p1Text;
+    [SerializeField] private TextMeshProUGUI p2Text;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +34,8 @@ public class GameManager : MonoBehaviour
         lightCounter = lightsOnTime;
         StartCoroutine("GameTimeController");
         SetLights();
+        updateScore();
+        instance = this;
     }
 
     // Update is called once per frame
@@ -80,11 +73,13 @@ public class GameManager : MonoBehaviour
         //At the end of our checks! Time is out, so lets exit
         ExitGame();
     }
+    
+    
 
     private void SetTimer()
     {
         //Stub for setting the time!
-        print("Setting time to " + gameTime);
+        scoreText.SetText("Time Left:\n" + (int) gameTime);
     }
 
     //TODO: Fill out my stubs!
@@ -105,5 +100,23 @@ public class GameManager : MonoBehaviour
     private void ExitGame()
     {
         print("Game should be exiting!");
+    }
+
+    public void addP1()
+    {
+        p1Score++;
+        updateScore();
+    }
+
+    public void addP2()
+    {
+        p2Score++;
+        updateScore();
+    }
+
+    public void updateScore()
+    {
+        p1Text.SetText("Player 1\n" + p1Score);
+        p2Text.SetText("Player 2\n" + p2Score);
     }
 }
