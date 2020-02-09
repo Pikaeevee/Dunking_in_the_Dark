@@ -16,7 +16,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/DetectScoring.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/Darkness.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/2D Glow.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FollowPlayers.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -26,6 +29,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
         <option value="$PROJECT_DIR$/Assets/DetectScoring.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FollowPlayers.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
       </list>
     </option>
   </component>
@@ -87,6 +93,7 @@
       <updated>1581191486437</updated>
       <workItem from="1581191496948" duration="2976000" />
       <workItem from="1581216513282" duration="3870000" />
+      <workItem from="1581262847379" duration="1112000" />
     </task>
     <servers />
   </component>
@@ -121,5 +128,9 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="254" y="125" key="SettingsEditor/0.0.1504.963@0.0.1504.963" timestamp="1581223369372" />
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1581264117401">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1581264117401" />
   </component>
 </project>
