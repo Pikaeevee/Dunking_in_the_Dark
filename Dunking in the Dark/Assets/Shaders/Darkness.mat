@@ -95,5 +95,5 @@ Material:
     - _Pos: {r: 0, g: 0, b: 0, a: 0}
     - _Pos1: {r: 0, g: 0, b: 0, a: 0}
     - _PosGoal: {r: 0, g: 6.14, b: 0, a: 0}
-    - _PosOne: {r: -0.74, g: -0.87, b: 0, a: 0}
+    - _PosOne: {r: -2.63, g: 0.59, b: 0, a: 0}
     - _PosTwo: {r: 1.69, g: 2.72, b: 0, a: 0}
