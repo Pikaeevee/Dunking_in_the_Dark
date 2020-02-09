@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem; 
 
 public class BallMovement : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class BallMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private float velocity;
+    Vector2 movement; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +27,7 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         Vector2 currPos = transform.position;
-        float velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         // check for different platforms 
         if (onSticky)
@@ -45,8 +49,28 @@ public class BallMovement : MonoBehaviour
         if (Input.GetButton("Jump"))
         {
             // assuming ball is rigidbody 
-            rb.AddForce(Vector2.up * jumpSpeed); 
+            Jump(); 
         }
 
+    }
+
+    private void OnMove(InputValue value)
+    {
+        movement = value.Get<Vector2>(); 
+        Debug.Log(movement);
+
+        float horiz = movement.x;
+
+        velocity = horiz * speed * Time.deltaTime; 
+    }
+
+    private void OnJump()
+    {
+        Jump(); 
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(Vector2.up * jumpSpeed);
     }
 }
