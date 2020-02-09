@@ -5,6 +5,7 @@ Shader "Unlit/Darkness"
 	Properties
 	{
 		_Color("Main Color", Color) = (0.0,0.0,0.0,1)
+		_Color2("Light Color", Color) = (0.0,0.0,0.0,0.0)
 		_PosOne("Character 1 Position", Float) = (0,0,0,0)
 		_OneRad("Character 1 Radius", Float) = 5
 		_PosTwo("Character 2 Position", Float) = (0,0,0,0)
@@ -14,7 +15,11 @@ Shader "Unlit/Darkness"
 	}
 		SubShader
 	{
+		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
+		Cull front
+		LOD 100
 
 		Pass
 		{
@@ -26,6 +31,8 @@ Shader "Unlit/Darkness"
 			uniform float4 _PosTwo;
 			uniform float _OneRad;
 			uniform float _TwoRad;
+			uniform float4 _Color;
+			uniform float4 _Color2;
 
 			uniform float4 _PosGoal;
 			uniform float _GoalRad;
@@ -64,22 +71,13 @@ Shader "Unlit/Darkness"
 					float hasTwo = step(_TwoRad, distTwo);
 					float hasThree = step(_GoalRad, distThree);
 					float canHide = hasOne * hasTwo * hasThree;
+					float sub = 1 - canHide;
 					// computes the distance between the fragment position 
 					// and the origin (the 4th coordinate should always be 
 					// 1 for points).
 
-					return float4(0.0, 0.0, 0.0, canHide);
+					return _Color * canHide + _Color2 * sub;
 
-					if (distOne < 5.0)
-					{
-						return float4(0.0, 1.0, 0.0, 1.0);
-						// color near origin
-					}
-					else
-					{
-						return float4(0.1, 0.1, 0.1, 1.0);
-						// color far from origin
-					}
 				}
 
 				ENDCG
