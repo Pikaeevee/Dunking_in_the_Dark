@@ -14,7 +14,11 @@ Shader "Unlit/Darkness"
 	}
 		SubShader
 	{
+		Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
+		Cull front
+		LOD 100
 
 		Pass
 		{
@@ -70,16 +74,6 @@ Shader "Unlit/Darkness"
 
 					return float4(0.0, 0.0, 0.0, canHide);
 
-					if (distOne < 5.0)
-					{
-						return float4(0.0, 1.0, 0.0, 1.0);
-						// color near origin
-					}
-					else
-					{
-						return float4(0.1, 0.1, 0.1, 1.0);
-						// color far from origin
-					}
 				}
 
 				ENDCG
