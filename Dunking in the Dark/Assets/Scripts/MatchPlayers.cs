@@ -6,9 +6,19 @@ public class MatchPlayers : MonoBehaviour
 {
     private GameObject playerOne;
     private GameObject playerTwo;
+    private GameObject goal;
     private Material mat;
     [SerializeField] private float p1Distance;
     [SerializeField] private float p2Distance;
+    [SerializeField] private float goalDistance;
+    
+    //Slow lookup at the start, so we get fast lookups later
+    private static readonly int PosOne = Shader.PropertyToID("_PosOne");
+    private static readonly int PosTwo = Shader.PropertyToID("_PosTwo");
+    private static readonly int OneRad = Shader.PropertyToID("_OneRad");
+    private static readonly int TwoRad = Shader.PropertyToID("_TwoRad");
+    private static readonly int PosGoal = Shader.PropertyToID("_PosGoal");
+    private static readonly int GoalRad = Shader.PropertyToID("_GoalRad");
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +26,7 @@ public class MatchPlayers : MonoBehaviour
         mat = GetComponent<MeshRenderer>().sharedMaterial;
         playerOne = GameObject.FindGameObjectWithTag("Player1");
         playerTwo = GameObject.FindGameObjectWithTag("Player2");
+        goal = GameObject.FindGameObjectWithTag("Goal");
     }
 
     // Update is called once per frame
@@ -23,9 +34,12 @@ public class MatchPlayers : MonoBehaviour
     {
         Vector4 posOne = playerOne.transform.position;
         Vector4 posTwo = playerTwo.transform.position;
-        mat.SetVector("_PosOne", posOne);
-        mat.SetVector("_PosTwo", posTwo);
-        mat.SetFloat("_OneRad", p1Distance);
-        mat.SetFloat("_TwoRad", p2Distance);
+        Vector4 posGoal = goal.transform.position;
+        mat.SetVector(PosOne, posOne);
+        mat.SetVector(PosTwo, posTwo);
+        mat.SetFloat(OneRad, p1Distance);
+        mat.SetFloat(TwoRad, p2Distance);
+        mat.SetVector(PosGoal, posGoal);
+        mat.SetFloat(GoalRad, goalDistance);
     }
 }
