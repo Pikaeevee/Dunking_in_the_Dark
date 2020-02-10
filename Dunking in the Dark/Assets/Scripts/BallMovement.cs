@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BallMovement : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class BallMovement : MonoBehaviour
     private float jumpcooldown = 0;
 
     private Rigidbody2D rb;
+
+    Vector2 movement;
+
+    private float velocity; 
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +39,7 @@ public class BallMovement : MonoBehaviour
     {
         jumpcooldown -= Time.deltaTime;
         Vector2 currPos = transform.position;
-        float velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        //velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         // check for different platforms 
         if (onSticky)
@@ -53,25 +58,52 @@ public class BallMovement : MonoBehaviour
 
 
         // jump button tbt, currently default 
-        if (Input.GetButton("Jump") && (jumpcooldown <= 0))
+        if (Input.GetButton("Jump"))
         {
-            print("Attempting to Jump!");
-            //Raycast to make sure we can jump
-            RaycastHit2D results;
-            LayerMask mask = LayerMask.GetMask("Default");
-            results = Physics2D.Raycast(transform.position, howCloseToJump.normalized, howCloseToJump.magnitude, mask);
-            if (results.collider)
+            if (jumpcooldown <= 0)
             {
-                print("We correctly collided!");
-                //We hit something!
-                // assuming ball is rigidbody
-                rb.AddForce(Vector2.up * jumpSpeed);
-                jumpcooldown = jumpWait;
+                Jump();
             }
-            else
-            {
-                print("No collider hit!");
-            }
+        }
+    }
+
+    private void Jump()
+    {
+        print("Attempting to Jump!");
+        //Raycast to make sure we can jump
+        RaycastHit2D results;
+        LayerMask mask = LayerMask.GetMask("Default");
+        results = Physics2D.Raycast(transform.position, howCloseToJump.normalized, howCloseToJump.magnitude, mask);
+        if (results.collider)
+        {
+            //print("We correctly collided!");
+            //We hit something!
+            // assuming ball is rigidbody
+            rb.AddForce(Vector2.up * jumpSpeed);
+            jumpcooldown = jumpWait;
+        }
+        else
+        {
+            //print("No collider hit!");
+        }
+    }
+
+    private void OnMove(InputValue value)
+    {
+        Debug.Log("moving with stick"); 
+        movement = value.Get<Vector2>();
+
+        float horiz = movement.x;
+
+        velocity = horiz * speed * Time.deltaTime;
+    }
+
+    private void OnJump()
+    {
+        Debug.Log("jumped through controller"); 
+        if (jumpcooldown <= 0)
+        {
+            Jump(); 
         }
     }
 
