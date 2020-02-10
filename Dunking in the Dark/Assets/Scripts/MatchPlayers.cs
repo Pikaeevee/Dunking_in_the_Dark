@@ -8,9 +8,9 @@ public class MatchPlayers : MonoBehaviour
     private GameObject playerTwo;
     private GameObject goal;
     private Material mat;
-    [SerializeField] private float p1Distance;
-    [SerializeField] private float p2Distance;
-    [SerializeField] private float goalDistance;
+    public float p1Distance;
+    public float p2Distance;
+    public float goalDistance;
     
     //Slow lookup at the start, so we get fast lookups later
     private static readonly int PosOne = Shader.PropertyToID("_PosOne");

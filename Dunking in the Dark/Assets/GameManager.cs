@@ -1,16 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
         //Lights and Timing
+    [Header("Lights and Timing")]
     [SerializeField] private float gameTime;
 
     [HideInInspector] public float p1Score;
@@ -22,18 +25,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float lightsOnTime;
     [SerializeField] private float lightsOffTime;
     [SerializeField] private float lastXLight;
-    private bool lightsOn = true;
+    [SerializeField] private float lightLerpTime;
+    [SerializeField] private float playerCircleChange;
+    private bool lightsOn = false;
     private float lightCounter;
 
+    [Header("Respawning")]
     [SerializeField] private bool respawnRandomly;
     [SerializeField] private Vector2 respawnBoxDimensions;
     [SerializeField] private Vector2[] respawnPoints;
 
     //Our Serialized Objects
+    [Header("Serialized Inputs")]
     [SerializeField] private GameObject darknessPlane;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI p1Text;
     [SerializeField] private TextMeshProUGUI p2Text;
+    private MatchPlayers darknessMatcher;
     
     //Our players
     private GameObject p1;
@@ -50,10 +58,9 @@ public class GameManager : MonoBehaviour
         //Get other objects
         p1 = GameObject.FindGameObjectWithTag("Player1");
         p2 = GameObject.FindGameObjectWithTag("Player2");
-        
+        darknessMatcher = darknessPlane.GetComponent<MatchPlayers>();
         lightCounter = lightsOnTime;
         StartCoroutine("GameTimeController");
-        SetLights();
         updateScore();
         instance = this;
     }
@@ -101,19 +108,72 @@ public class GameManager : MonoBehaviour
         scoreText.SetText("TIME LEFT:\n" + (int) gameTime);
     }
 
+    IEnumerator interpolateLightsOut(float timer)
+    {
+        print("Pushing lights out");
+        //Wait a frame
+        yield return null;
+        float startDistance1 = darknessMatcher.p1Distance;
+        float endDistance1 = darknessMatcher.p1Distance * playerCircleChange;
+        float startDistance2 = darknessMatcher.p2Distance;
+        float endDistance2 = darknessMatcher.p2Distance * playerCircleChange;
+        float actualTime = 0;
+        while (actualTime < timer)
+        {
+            //Increment time, and normalize if necessary
+            actualTime += Time.deltaTime;
+            if (actualTime > timer)
+            {
+                actualTime = timer;
+            }
+
+            //Set our values
+            darknessMatcher.p1Distance = Mathf.Lerp(startDistance1, endDistance1, actualTime / timer);
+            darknessMatcher.p2Distance = Mathf.Lerp(startDistance2, endDistance2, actualTime / timer);
+            
+            //Step 1 frame
+            yield return null;
+        }
+    }
+    
+    IEnumerator interpolateLightsIn(float timer)
+    {
+        //Wait a frame
+        yield return null;
+        float startDistance1 = darknessMatcher.p1Distance;
+        float endDistance1 = darknessMatcher.p1Distance / playerCircleChange;
+        float startDistance2 = darknessMatcher.p2Distance;
+        float endDistance2 = darknessMatcher.p2Distance / playerCircleChange;
+        float actualTime = 0;
+        while (actualTime < timer)
+        {
+            actualTime += Time.deltaTime;
+            if (actualTime > timer)
+            {
+                actualTime = timer;
+            }
+            darknessMatcher.p1Distance = Mathf.Lerp(startDistance1, endDistance1, actualTime / timer);
+            darknessMatcher.p2Distance = Mathf.Lerp(startDistance2, endDistance2, actualTime / timer);
+            yield return null;
+        }
+    }
+
     //TODO: Fill out my stubs!
     private void SetLights()
     {
+        print("Starting set lights functions");
+        IEnumerator co;
         if (lightsOn)
         {
             //Turn the lights on!
-            darknessPlane.SetActive(false);
+            co = interpolateLightsOut(lightLerpTime);
         }
         else
         {
-            //Turn them off!
-            darknessPlane.SetActive(true);
+            co = interpolateLightsIn(lightLerpTime);
         }
+
+        StartCoroutine(co);
     }
 
     private void ExitGame()
