@@ -28,16 +28,24 @@ public class DetectScoring : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        source.PlayOneShot(scoringNoise);
+        
         if (other.gameObject.CompareTag("Player1"))
         {
             //Give player one points!
-            GameManager.instance.addP1();
+            if (checkPlayerEligibility(other.gameObject))
+            {
+                source.PlayOneShot(scoringNoise);
+                GameManager.instance.addP1();
+            }
         }
         else if (other.gameObject.CompareTag("Player2"))
         {
             //Give player two points!
-            GameManager.instance.addP2();
+            if (checkPlayerEligibility(other.gameObject))
+            {
+                source.PlayOneShot(scoringNoise);
+                GameManager.instance.addP2();
+            }
         }
     }
 
@@ -51,7 +59,7 @@ public class DetectScoring : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x - directionBallEnters.x, transform.position.y - directionBallEnters.y, transform.position.z));
-        Gizmos.DrawWireCube(new Vector3(transform.position.x - directionBallEnters.x, transform.position.y - directionBallEnters.y, transform.position.z), Vector3.one * .1f);
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + directionBallEnters.x, transform.position.y + directionBallEnters.y, transform.position.z));
+        Gizmos.DrawWireCube(new Vector3(transform.position.x + directionBallEnters.x, transform.position.y + directionBallEnters.y, transform.position.z), Vector3.one * .1f);
     }
 }
