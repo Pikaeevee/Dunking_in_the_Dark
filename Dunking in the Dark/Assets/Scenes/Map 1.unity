@@ -762,7 +762,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06400204, y: -0.0000035762787}
+  m_Offset: {x: -0.06400204, y: -1.5220013}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -773,7 +773,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.435221, y: 10.000008}
+  m_Size: {x: 10.435221, y: 13.044003}
   m_EdgeRadius: 0
 --- !u!212 &299003984
 SpriteRenderer:
@@ -876,7 +876,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.045304775, y: 0.32458496}
+  m_Offset: {x: 0.045304775, y: 1.351351}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -887,7 +887,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.602635, y: 10.64917}
+  m_Size: {x: 10.602635, y: 12.702702}
   m_EdgeRadius: 0
 --- !u!212 &381863057
 SpriteRenderer:
@@ -990,7 +990,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05089712, y: 0.7659781}
+  m_Offset: {x: -0.05089712, y: 1.8935838}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1001,7 +1001,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.509023, y: 11.531956}
+  m_Size: {x: 10.509023, y: 13.787168}
   m_EdgeRadius: 0
 --- !u!212 &557874996
 SpriteRenderer:
@@ -1112,7 +1112,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -132.73051, y: 1.2029762}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1123,7 +1123,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 50, y: 10.009766}
+  m_Size: {x: 326.689, y: 12.415718}
   m_EdgeRadius: 0
 --- !u!212 &568926200
 SpriteRenderer:
@@ -2251,6 +2251,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8797354047815553251, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
       propertyPath: m_Name
@@ -2409,6 +2414,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855623108545079697, guid: ebfbdddad4fa9054e8d9f74adb5cf340,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855623108545079697, guid: ebfbdddad4fa9054e8d9f74adb5cf340,
+        type: 3}
+      propertyPath: jumpKey
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855623108545079697, guid: ebfbdddad4fa9054e8d9f74adb5cf340,
+        type: 3}
+      propertyPath: leftKey
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855623108545079697, guid: ebfbdddad4fa9054e8d9f74adb5cf340,
+        type: 3}
+      propertyPath: rightKey
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 1855623108545079698, guid: ebfbdddad4fa9054e8d9f74adb5cf340,
         type: 3}
@@ -3310,6 +3335,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1659114571162138296, guid: 166d64b3b1d2d1349b42acecc05c1f9b,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.5038452
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659114571162138296, guid: 166d64b3b1d2d1349b42acecc05c1f9b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 62.523132
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659114571162138296, guid: 166d64b3b1d2d1349b42acecc05c1f9b,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.7519212
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659114571162138296, guid: 166d64b3b1d2d1349b42acecc05c1f9b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 11.853843
+      objectReference: {fileID: 0}
     - target: {fileID: 1659114571162138297, guid: 166d64b3b1d2d1349b42acecc05c1f9b,
         type: 3}
       propertyPath: m_Name
@@ -3383,6 +3428,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308798917975784202, guid: ab608765812592e4388469fd3dc448f8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5039139
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308798917975784202, guid: ab608765812592e4388469fd3dc448f8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 53.007828
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab608765812592e4388469fd3dc448f8, type: 3}
@@ -3679,6 +3734,16 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 56.53585
       objectReference: {fileID: 0}
+    - target: {fileID: 4441072644092103853, guid: 5fb169a73f35eb14f971fe8caaeee5b4,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -1.1278954
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441072644092103853, guid: 5fb169a73f35eb14f971fe8caaeee5b4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 12.265556
+      objectReference: {fileID: 0}
     - target: {fileID: 4441072644092103855, guid: 5fb169a73f35eb14f971fe8caaeee5b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3960,6 +4025,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glue Floor Black and White (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6886652452902341577, guid: a7356269069a4974488634a324ff5af1,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -3.53092
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886652452902341577, guid: a7356269069a4974488634a324ff5af1,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 57.06184
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886652452902341577, guid: a7356269069a4974488634a324ff5af1,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0000014305115
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886652452902341577, guid: a7356269069a4974488634a324ff5af1,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 12.577701
+      objectReference: {fileID: 0}
     - target: {fileID: 6886652452902341579, guid: a7356269069a4974488634a324ff5af1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4024,6 +4109,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1489858316}
     m_Modifications:
+    - target: {fileID: 6901662900949660353, guid: e9ea38257d5147d4a9bd67252547bc09,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 4.511532
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901662900949660353, guid: e9ea38257d5147d4a9bd67252547bc09,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 59.023064
+      objectReference: {fileID: 0}
     - target: {fileID: 6901662900949660355, guid: e9ea38257d5147d4a9bd67252547bc09,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4153,6 +4248,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Type White and Black (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7238350733852402431, guid: 9006e75afc8649048ad116d698c38c18,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.75249386
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238350733852402431, guid: 9006e75afc8649048ad116d698c38c18,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 11.514753
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9006e75afc8649048ad116d698c38c18, type: 3}
 --- !u!1001 &8130517346986303124
@@ -4166,6 +4271,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall Type White and Black (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130517348113391202, guid: 90ca8f8ba623bf9439e4814ed3fb6ae4,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.17751026
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130517348113391202, guid: 90ca8f8ba623bf9439e4814ed3fb6ae4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 12.66242
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130517348113391202, guid: 90ca8f8ba623bf9439e4814ed3fb6ae4,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.5038452
+      objectReference: {fileID: 0}
+    - target: {fileID: 8130517348113391202, guid: 90ca8f8ba623bf9439e4814ed3fb6ae4,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 58.407692
       objectReference: {fileID: 0}
     - target: {fileID: 8130517348113391212, guid: 90ca8f8ba623bf9439e4814ed3fb6ae4,
         type: 3}

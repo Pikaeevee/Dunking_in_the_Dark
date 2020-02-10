@@ -18,6 +18,10 @@ public class BallMovement : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public KeyCode jumpKey;
+    public KeyCode leftKey;
+    public KeyCode rightKey; 
+
     Vector2 movement;
 
     private float velocity; 
@@ -39,6 +43,16 @@ public class BallMovement : MonoBehaviour
     {
         jumpcooldown -= Time.deltaTime;
         Vector2 currPos = transform.position;
+
+        if (Input.GetKeyDown(leftKey))
+        {
+            velocity = -1 * speed * Time.deltaTime; 
+        }
+        if (Input.GetKeyDown(rightKey))
+        {
+            velocity = speed * Time.deltaTime; 
+        }
+
         //velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         // check for different platforms 
@@ -58,7 +72,7 @@ public class BallMovement : MonoBehaviour
 
 
         // jump button tbt, currently default 
-        if (Input.GetButton("Jump"))
+        if (Input.GetKey(jumpKey))
         {
             if (jumpcooldown <= 0)
             {
