@@ -2055,15 +2055,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Main Camera '
       objectReference: {fileID: 0}
+    - target: {fileID: 7273624854183019699, guid: 92c4f6089973e114d927d6ff37a8bb18,
+        type: 3}
+      propertyPath: orthographic size
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7273624854183019700, guid: 92c4f6089973e114d927d6ff37a8bb18,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.1399999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7273624854183019700, guid: 92c4f6089973e114d927d6ff37a8bb18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.8
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 7273624854183019700, guid: 92c4f6089973e114d927d6ff37a8bb18,
         type: 3}
@@ -3605,6 +3610,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4300725063688070102, guid: 32c12953e8827df4d8dac039e52d262d,
+        type: 3}
+      propertyPath: directionBallEnters.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4300725064022091637, guid: 32c12953e8827df4d8dac039e52d262d,
         type: 3}
       propertyPath: m_LocalPosition.x
