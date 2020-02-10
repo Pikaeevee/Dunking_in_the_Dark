@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &8797354047815553249
 BoxCollider2D:
@@ -151,6 +151,9 @@ MonoBehaviour:
   onIce: 0
   onSticky: 0
   jumpWait: 0.05
+  jumpKey: 0
+  leftKey: 0
+  rightKey: 0
 --- !u!96 &8797354047815553261
 TrailRenderer:
   serializedVersion: 2

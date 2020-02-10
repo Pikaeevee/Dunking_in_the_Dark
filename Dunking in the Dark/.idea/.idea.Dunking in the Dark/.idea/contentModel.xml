@@ -6,14 +6,18 @@
     <e p="C:\Users\Woodm\Documents\GitHub\Dunking_in_the_Dark\Dunking in the Dark" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="DetectScoring.cs" t="Include" />
+        <e p="Fonts" t="Include">
+          <e p="1001fonts-drive-thru-eula.txt" t="Include" />
+        </e>
         <e p="GameManager.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BallMovement.cs" t="Include" />
+          <e p="DetectScoring.cs" t="Include" />
           <e p="FollowPlayers.cs" t="Include" />
           <e p="IcyPlatformScript.cs" t="Include" />
           <e p="MatchPlayers.cs" t="Include" />
           <e p="PUSpeedScript.cs" t="Include" />
+          <e p="startmenu.cs" t="Include" />
           <e p="StickyPlatformScript.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
