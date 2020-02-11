@@ -125,9 +125,10 @@ MonoBehaviour:
   onIce: 0
   onSticky: 0
   jumpWait: 0.05
-  jumpKey: 0
-  leftKey: 0
-  rightKey: 0
+  jumpKey: 119
+  leftKey: 97
+  rightKey: 100
+  speedMultiplier: 1
 --- !u!96 &8797354047815553261
 TrailRenderer:
   serializedVersion: 2
@@ -171,7 +172,7 @@ TrailRenderer:
   m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.2
+    widthMultiplier: 0.85
     widthCurve:
       serializedVersion: 2
       m_Curve:
