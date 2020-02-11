@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoringNoise: {fileID: 8300000, guid: c826bf843de5648fca744872d35bae12, type: 3}
-  directionBallEnters: {x: 0, y: 2}
+  directionBallEnters: {x: 0, y: -2}
 --- !u!1 &4300725063849779971
 GameObject:
   m_ObjectHideFlags: 0
