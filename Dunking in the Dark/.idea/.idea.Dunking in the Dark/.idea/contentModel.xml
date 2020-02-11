@@ -10,6 +10,7 @@
           <e p="1001fonts-drive-thru-eula.txt" t="Include" />
         </e>
         <e p="GameManager.cs" t="Include" />
+        <e p="PUSpikeScript.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BallMovement.cs" t="Include" />
           <e p="DetectScoring.cs" t="Include" />

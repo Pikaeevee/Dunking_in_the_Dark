@@ -196,12 +196,12 @@ public class GameManager : MonoBehaviour
          {
              //Halt a frame, for correct timing
              yield return null;
-             float goalAmount = darknessMatcher.goalDistance;
+             
              float currentTime = 0;
              while (currentTime < time / 2)
              {
                  currentTime += Time.deltaTime;
-                 darknessMatcher.goalDistance = Mathf.Lerp(goalAmount, 0, currentTime * 2 / time);
+                 darknessMatcher.totalLerp = Mathf.Lerp(1, 0, currentTime * 2 / time);
                  yield return null;
              }
              if (goalPoints.Length == 0)
@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
              while (currentTime < time)
              {
                  currentTime += Time.deltaTime;
-                 darknessMatcher.goalDistance = Mathf.Lerp(0, goalAmount, (currentTime - (time/2)) * 2f / time);
+                 darknessMatcher.totalLerp = Mathf.Lerp(0, 1, (currentTime - (time/2)) * 2f / time);
                  yield return null;
              }
          }
@@ -225,7 +225,6 @@ public class GameManager : MonoBehaviour
     {
         //Halt a frame, for correct timing
         yield return null;
-        float goalAmount = darknessMatcher.goalDistance;
         float currentTime = 0;
         if (goalPoints.Length == 0)
         {
@@ -239,7 +238,7 @@ public class GameManager : MonoBehaviour
         while (currentTime < time)
         {
             currentTime += Time.deltaTime;
-            darknessMatcher.goalDistance = Mathf.Lerp(0, goalAmount, (currentTime / time));
+            darknessMatcher.totalLerp = Mathf.Lerp(0, 1, (currentTime / time));
             yield return null;
         }
         print("Finished!");
@@ -253,25 +252,24 @@ public class GameManager : MonoBehaviour
     public void addP1()
     {
         p1Score++;
-        updateScore();
+        StartCoroutine(updateScore(goalRespawnTime/2));
     }
 
     public void addP2()
     {
         p2Score++;
-        updateScore();
+        StartCoroutine(updateScore(goalRespawnTime/2));
     }
 
-    public void updateScore()
+    IEnumerator updateScore(float delay)
     {
         p1Text.SetText("PLAYER 1\n" + p1Score);
         p2Text.SetText("PLAYER 2\n" + p2Score);
         
-        respawnPlayers();
-
+        StartCoroutine(respawnGoal(goalRespawnTime));
+        yield return new WaitForSeconds(delay);
         
-        IEnumerator goalCoroutine = respawnGoal(goalRespawnTime);
-        StartCoroutine(goalCoroutine);
+        respawnPlayers();
     }
 
     private void respawnPlayers()

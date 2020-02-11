@@ -24,7 +24,11 @@ public class BallMovement : MonoBehaviour
 
     Vector2 movement;
 
-    private float velocity; 
+    private float velocity;
+
+    //Float that says how much longer our powerup lasts
+    private float spikeyTime;
+    private bool isSpikey;
     
     //Powerup Modifiers
     public float speedMultiplier = 1;
@@ -89,6 +93,35 @@ public class BallMovement : MonoBehaviour
                 Jump();
             }
         }
+        
+        //Update spike factor
+        if (spikeyTime > 0)
+        {
+            //Countdown
+            spikeyTime -= Time.deltaTime;
+            if (spikeyTime <= 0)
+            {
+                //We need to reset!
+                undoSpikey();
+            }
+        }
+    }
+
+    //TODO: Make these do something more interesing than just scale
+    public void setSpikey(float duration)
+    {
+        spikeyTime += duration;
+        isSpikey = true;
+        howCloseToJump *= 2;
+        transform.localScale = transform.localScale * 1.2f;
+    }
+
+    public void undoSpikey()
+    {
+        spikeyTime = 0;
+        isSpikey = false;
+        howCloseToJump /= 2;
+        transform.localScale = transform.localScale / 1.2f;
     }
 
     private void Jump()
@@ -128,6 +161,18 @@ public class BallMovement : MonoBehaviour
         if (jumpcooldown <= 0)
         {
             Jump(); 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
+        {
+            if (isSpikey)
+            {
+                //Pop the other player!
+                print("Popped you!");
+            }
         }
     }
 
