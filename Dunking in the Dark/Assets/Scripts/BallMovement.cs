@@ -25,6 +25,9 @@ public class BallMovement : MonoBehaviour
     Vector2 movement;
 
     private float velocity; 
+    
+    //Powerup Modifiers
+    public float speedMultiplier = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -46,11 +49,11 @@ public class BallMovement : MonoBehaviour
 
         if (Input.GetKey(leftKey))
         {
-            velocity = -1 * speed;//* Time.deltaTime; 
+            velocity = -1 * speed * speedMultiplier;//* Time.deltaTime; 
         }
         else if (Input.GetKey(rightKey))
         {
-            velocity = speed;// * Time.deltaTime; 
+            velocity = speed * speedMultiplier;// * Time.deltaTime; 
         }
         else
         {

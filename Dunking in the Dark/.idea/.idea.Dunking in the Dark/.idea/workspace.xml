@@ -30,11 +30,11 @@
         <option value="$PROJECT_DIR$/Assets/DetectScoring.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FollowPlayers.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/Darkness.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectScoring.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -101,6 +101,7 @@
       <workItem from="1581270764602" duration="3164000" />
       <workItem from="1581364190541" duration="3524000" />
       <workItem from="1581443008728" duration="534000" />
+      <workItem from="1581451970695" duration="4237000" />
     </task>
     <servers />
   </component>

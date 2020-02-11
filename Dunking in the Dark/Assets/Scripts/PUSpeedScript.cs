@@ -11,13 +11,13 @@ public class PUSpeedScript : MonoBehaviour
     public float duration = 8.0f;
     public bool enemyDebuff = false;
 
-    private GameObject player; 
-    private float ogSpeed;
-    public AudioSource powerupSFX;
+    private GameObject player;
+    private AudioSource powerupSFX;
+    public AudioClip powerupNoise;
 
     void Start()
     {
-        powerupSFX = GetComponent<AudioSource>();
+        powerupSFX = Camera.main.GetComponent<AudioSource>(); //GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,33 +28,45 @@ public class PUSpeedScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        powerupSFX.Play();
-
-        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
+        if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
         {
+            powerupSFX.PlayOneShot(powerupNoise);
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<Renderer>().enabled = false;
             if (!enemyDebuff)
             {
                 player = collision.gameObject;
-                ogSpeed = player.GetComponent<BallMovement>().speed;
+                //ogSpeed = player.GetComponent<BallMovement>().speed;
             }
-            // else debuff TODO
-            // find other player(s)
-            // set 'player' var to chosen player 
-            // get ogspeed of player 
+            else
+            {
+                if (collision.gameObject.CompareTag("Player1"))
+                {
+                    player = GameObject.FindGameObjectWithTag("Player2");
+                }
+                else
+                {
+                    player = GameObject.FindGameObjectWithTag("Player1");
+                }
+            }
+            
+            
 
             StartCoroutine(StartEffect()); 
         }
     }
 
+    //Changes made here, so that the speed multipliers correctly stack and de-stack
     IEnumerator StartEffect()
     {
-        player.GetComponent<BallMovement>().speed *= speedMultiplier;
+        BallMovement ball = player.GetComponent<BallMovement>();
+        ball.speedMultiplier = ball.speedMultiplier * speedMultiplier;
 
         yield return new WaitForSeconds(duration);
 
-        player.GetComponent<BallMovement>().speed = ogSpeed;
+        
+
+        ball.speedMultiplier = ball.speedMultiplier / speedMultiplier;
         gameObject.SetActive(false); // disable powerup 
 
         Destroy(this.gameObject); 
