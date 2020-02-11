@@ -44,13 +44,18 @@ public class BallMovement : MonoBehaviour
         jumpcooldown -= Time.deltaTime;
         Vector2 currPos = transform.position;
 
-        if (Input.GetKeyDown(leftKey))
+        if (Input.GetKey(leftKey))
         {
-            velocity = -1 * speed * Time.deltaTime; 
+            velocity = -1 * speed;//* Time.deltaTime; 
         }
-        if (Input.GetKeyDown(rightKey))
+        else if (Input.GetKey(rightKey))
         {
-            velocity = speed * Time.deltaTime; 
+            velocity = speed;// * Time.deltaTime; 
+        }
+        else
+        {
+            //Base case so that ball doesn't just move forever
+            velocity = 0;
         }
 
         //velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
@@ -67,7 +72,9 @@ public class BallMovement : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector2(currPos.x + velocity, currPos.y);
+            //Moving over to a rigidbody system
+            rb.velocity = new Vector2(velocity, rb.velocity.y);
+            //transform.position = new Vector2(currPos.x + velocity, currPos.y);
         }
 
 
