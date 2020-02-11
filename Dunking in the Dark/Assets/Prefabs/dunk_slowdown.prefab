@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3874881309624982838}
   - component: {fileID: 3874881309624982837}
   - component: {fileID: 3874881309624982836}
+  - component: {fileID: 8129221871169353720}
   m_Layer: 0
   m_Name: dunk_slowdown
   m_TagString: Untagged
@@ -98,3 +99,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.25
+--- !u!114 &8129221871169353720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874881309624982827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e891da1d5bfd3b4cb007b635fb361fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 0.75
+  duration: 8
+  enemyDebuff: 1
+  powerupNoise: {fileID: 0}

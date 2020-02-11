@@ -30,10 +30,14 @@ public class GameManager : MonoBehaviour
     private bool lightsOn = false;
     private float lightCounter;
 
-    [Header("Respawning")]
+    [Header("Respawning of players")]
     [SerializeField] private bool respawnRandomly;
     [SerializeField] private Vector2 respawnBoxDimensions;
     [SerializeField] private Vector2[] respawnPoints;
+
+    [Header("Respawning of goals")] 
+    [SerializeField] private float goalRespawnTime;
+    [SerializeField] private Vector2[] goalPoints;
 
     //Our Serialized Objects
     [Header("Serialized Inputs")]
@@ -43,9 +47,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI p2Text;
     private MatchPlayers darknessMatcher;
     
-    //Our players
+    //Our players and other objects
     private GameObject p1;
     private GameObject p2;
+    private GameObject goal;
     
     // Start is called before the first frame update
     void Start()
@@ -58,10 +63,22 @@ public class GameManager : MonoBehaviour
         //Get other objects
         p1 = GameObject.FindGameObjectWithTag("Player1");
         p2 = GameObject.FindGameObjectWithTag("Player2");
+        goal = GameObject.FindGameObjectWithTag("Goal");
+        
+        p1Text.SetText("PLAYER 1\n" + p1Score);
+        p2Text.SetText("PLAYER 2\n" + p2Score);
+        
+        //Throw the goal far away, so it look correct
+        //goal.transform.position = new Vector3(30,30, goal.transform.position.z);
+        
+        darknessPlane.SetActive(true);
         darknessMatcher = darknessPlane.GetComponent<MatchPlayers>();
         lightCounter = lightsOnTime;
         StartCoroutine("GameTimeController");
-        updateScore();
+        //updateScore();
+        respawnPlayers();
+        IEnumerator goalCoroutine = startGoal(goalRespawnTime/2);
+        StartCoroutine(goalCoroutine);
         instance = this;
     }
 
@@ -157,8 +174,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
-
-    //TODO: Fill out my stubs!
+    
     private void SetLights()
     {
         print("Starting set lights functions");
@@ -174,6 +190,59 @@ public class GameManager : MonoBehaviour
         }
 
         StartCoroutine(co);
+    }
+
+    IEnumerator respawnGoal(float time)
+         {
+             //Halt a frame, for correct timing
+             yield return null;
+             float goalAmount = darknessMatcher.goalDistance;
+             float currentTime = 0;
+             while (currentTime < time / 2)
+             {
+                 currentTime += Time.deltaTime;
+                 darknessMatcher.goalDistance = Mathf.Lerp(goalAmount, 0, currentTime * 2 / time);
+                 yield return null;
+             }
+             if (goalPoints.Length == 0)
+             {
+                 Debug.LogError("There are not goal respawning points! Must be >0.");
+             }
+     
+             Vector2 point = goalPoints[Random.Range(0, goalPoints.Length)];
+             goal.transform.position = new Vector3(point.x, point.y, goal.transform.position.z);
+             
+             //Reset darkness
+             while (currentTime < time)
+             {
+                 currentTime += Time.deltaTime;
+                 darknessMatcher.goalDistance = Mathf.Lerp(0, goalAmount, (currentTime - (time/2)) * 2f / time);
+                 yield return null;
+             }
+         }
+    
+    IEnumerator startGoal(float time)
+    {
+        //Halt a frame, for correct timing
+        yield return null;
+        float goalAmount = darknessMatcher.goalDistance;
+        float currentTime = 0;
+        if (goalPoints.Length == 0)
+        {
+            Debug.LogError("There are not goal respawning points! Must be >0.");
+        }
+
+        Vector2 point = goalPoints[0];
+        goal.transform.position = new Vector3(point.x, point.y, goal.transform.position.z);
+        
+        //Reset darkness
+        while (currentTime < time)
+        {
+            currentTime += Time.deltaTime;
+            darknessMatcher.goalDistance = Mathf.Lerp(0, goalAmount, (currentTime / time));
+            yield return null;
+        }
+        print("Finished!");
     }
 
     private void ExitGame()
@@ -198,6 +267,15 @@ public class GameManager : MonoBehaviour
         p1Text.SetText("PLAYER 1\n" + p1Score);
         p2Text.SetText("PLAYER 2\n" + p2Score);
         
+        respawnPlayers();
+
+        
+        IEnumerator goalCoroutine = respawnGoal(goalRespawnTime);
+        StartCoroutine(goalCoroutine);
+    }
+
+    private void respawnPlayers()
+    {
         //Set the players positions!
         Vector3 newPos = Vector3.zero;
         if (respawnRandomly)
@@ -210,12 +288,11 @@ public class GameManager : MonoBehaviour
         {
             newPos = respawnPoints[Random.Range(0, respawnPoints.Length)];
         }
-
         p1.transform.position = newPos + new Vector3(-1, 0, 0);
         p2.transform.position = newPos + new Vector3(1, 0, 0);
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
         if (respawnRandomly)
@@ -228,6 +305,13 @@ public class GameManager : MonoBehaviour
             {
                 Gizmos.DrawWireSphere(v, .2f);
             }
+        }
+        
+        //Set up goal points
+        Gizmos.color = Color.red;
+        foreach (Vector2 v in goalPoints)
+        {
+            Gizmos.DrawWireSphere(new Vector3(v.x, v.y,0), .2f);
         }
     }
 }

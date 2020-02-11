@@ -25,6 +25,9 @@ public class BallMovement : MonoBehaviour
     Vector2 movement;
 
     private float velocity; 
+    
+    //Powerup Modifiers
+    public float speedMultiplier = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -44,13 +47,18 @@ public class BallMovement : MonoBehaviour
         jumpcooldown -= Time.deltaTime;
         Vector2 currPos = transform.position;
 
-        if (Input.GetKeyDown(leftKey))
+        if (Input.GetKey(leftKey))
         {
-            velocity = -1 * speed * Time.deltaTime; 
+            velocity = -1 * speed * speedMultiplier;//* Time.deltaTime; 
         }
-        if (Input.GetKeyDown(rightKey))
+        else if (Input.GetKey(rightKey))
         {
-            velocity = speed * Time.deltaTime; 
+            velocity = speed * speedMultiplier;// * Time.deltaTime; 
+        }
+        else
+        {
+            //Base case so that ball doesn't just move forever
+            velocity = 0;
         }
 
         //velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
@@ -67,7 +75,9 @@ public class BallMovement : MonoBehaviour
         }
         else
         {
-            transform.position = new Vector2(currPos.x + velocity, currPos.y);
+            //Moving over to a rigidbody system
+            rb.velocity = new Vector2(velocity, rb.velocity.y);
+            //transform.position = new Vector2(currPos.x + velocity, currPos.y);
         }
 
 
