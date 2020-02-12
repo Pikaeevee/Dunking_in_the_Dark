@@ -12,6 +12,7 @@ public class PlatformMovement : MonoBehaviour
     private Rigidbody2D rig;
     [SerializeField] private float speed;
     private bool movingToFirst = true;
+    private Vector2 offset;
     
     
     void OnValidate()
@@ -28,7 +29,8 @@ public class PlatformMovement : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        StartCoroutine(movePositions(rig.position, points[0] + rig.position));
+        offset = rig.position;
+        StartCoroutine(movePositions(offset, points[0] + offset));
     }
 
     // Update is called once per frame
@@ -60,11 +62,11 @@ public class PlatformMovement : MonoBehaviour
 
         if (movingToFirst)
         {
-            StartCoroutine(movePositions(rig.position + points[1], rig.position + points[0]));
+            StartCoroutine(movePositions(offset + points[1], offset + points[0]));
         }
         else
         {
-            StartCoroutine(movePositions(rig.position + points[0], rig.position + points[1]));
+            StartCoroutine(movePositions(offset + points[0], offset + points[1]));
         }
 
         movingToFirst = !movingToFirst;
