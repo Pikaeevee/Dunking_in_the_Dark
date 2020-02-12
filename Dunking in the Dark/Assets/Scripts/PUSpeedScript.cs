@@ -10,6 +10,7 @@ public class PUSpeedScript : MonoBehaviour
     public float speedMultiplier = 1.5f; 
     public float duration = 8.0f;
     public bool enemyDebuff = false;
+    [SerializeField] private float respawnTime = 10f;
 
     private GameObject player;
     private AudioSource powerupSFX;
@@ -67,8 +68,9 @@ public class PUSpeedScript : MonoBehaviour
         
 
         ball.speedMultiplier = ball.speedMultiplier / speedMultiplier;
-        gameObject.SetActive(false); // disable powerup 
-
-        Destroy(this.gameObject); 
+        
+        yield return new WaitForSeconds(respawnTime);
+        gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        gameObject.GetComponent<Renderer>().enabled = true;
     }
 }
