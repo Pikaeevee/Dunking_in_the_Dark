@@ -1042,6 +1042,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7273624854183019702, guid: 92c4f6089973e114d927d6ff37a8bb18,
+        type: 3}
+      propertyPath: stopNaNPropagation
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92c4f6089973e114d927d6ff37a8bb18, type: 3}
 --- !u!1001 &283399871
@@ -1705,6 +1710,7 @@ MonoBehaviour:
   speedMultiplier: 1.5
   duration: 8
   enemyDebuff: 0
+  respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
 --- !u!58 &476597067
 CircleCollider2D:
@@ -2857,12 +2863,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player 1
+  m_text: 'PLAYER 1
 
     5 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec8217f78c8434416b3efef6ca54ca37, type: 2}
+  m_sharedMaterial: {fileID: -3638663652406166287, guid: ec8217f78c8434416b3efef6ca54ca37,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5798,8 +5805,8 @@ Transform:
   - {fileID: 1988430812}
   - {fileID: 283399872}
   - {fileID: 1600247721}
-  - {fileID: 1697735714}
   - {fileID: 16623140}
+  - {fileID: 1697735714}
   - {fileID: 1749388826}
   - {fileID: 1887347077}
   - {fileID: 507041535}
@@ -6147,12 +6154,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player 2
+  m_text: 'PLAYER 2
 
     0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec8217f78c8434416b3efef6ca54ca37, type: 2}
+  m_sharedMaterial: {fileID: -3638663652406166287, guid: ec8217f78c8434416b3efef6ca54ca37,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6377,8 +6385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 10, y: -50}
+  m_SizeDelta: {x: 390.8, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1997646681
 CanvasRenderer:
@@ -6406,12 +6414,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time Remaing:
+  m_text: 'TIME REMAINING:
 
     50'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ec8217f78c8434416b3efef6ca54ca37, type: 2}
+  m_sharedMaterial: {fileID: -3638663652406166287, guid: ec8217f78c8434416b3efef6ca54ca37,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6477,7 +6486,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1997646682}
-    characterCount: 16
+    characterCount: 18
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -6903,6 +6912,7 @@ MonoBehaviour:
   speedMultiplier: 1.5
   duration: 8
   enemyDebuff: 0
+  respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
 --- !u!58 &2128931915
 CircleCollider2D:

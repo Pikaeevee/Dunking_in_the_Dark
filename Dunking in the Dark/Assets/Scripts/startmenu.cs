@@ -14,5 +14,9 @@ public class startmenu : MonoBehaviour
         Debug.Log("Successfully Exited");
         Application.Quit();
     }
+    public void ReturntoMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 }
