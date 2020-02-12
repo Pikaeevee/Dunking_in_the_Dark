@@ -7,10 +7,12 @@ public class PUSpikeScript : MonoBehaviour
     // Gives the player who touches it big, spikey spikes
     
     public float duration = 8.0f;
+    [SerializeField] private float respawnTime = 10f;
 
     private GameObject player;
     private AudioSource powerupSFX;
     public AudioClip spikeNoise;
+    
 
     void Start()
     {
@@ -36,14 +38,16 @@ public class PUSpikeScript : MonoBehaviour
 
 
 
-            StartEffect();
+            StartCoroutine(StartEffect());
         }
     }
 
     //This one doesn't need to be a coroutine, player handles this internally.
-    private void StartEffect()
+    IEnumerator StartEffect()
     {
         player.GetComponent<BallMovement>().setSpikey(duration);
-        Destroy(this.gameObject); 
+        yield return new WaitForSeconds(respawnTime);
+        gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        gameObject.GetComponent<Renderer>().enabled = true;
     }
 }
