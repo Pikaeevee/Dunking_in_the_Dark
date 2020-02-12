@@ -28,7 +28,7 @@ public class PlatformMovement : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        StartCoroutine(movePositions(rig.position, points[0]));
+        StartCoroutine(movePositions(rig.position, points[0] + rig.position));
     }
 
     // Update is called once per frame
