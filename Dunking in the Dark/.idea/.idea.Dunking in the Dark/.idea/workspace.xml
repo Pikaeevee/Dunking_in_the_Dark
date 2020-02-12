@@ -19,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/2D Glow.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/2D Glow Stolen.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PlatformMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PUHeavyScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -38,9 +39,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
         <option value="$PROJECT_DIR$/Assets/GameSetup.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/PUHeavyScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
         <option value="$PROJECT_DIR$/Assets/PUSpikeScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/PUHeavyScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlatformMovement.cs" />
       </list>
     </option>
   </component>
@@ -111,6 +113,7 @@
       <workItem from="1581457115945" duration="491000" />
       <workItem from="1581457812818" duration="2010000" />
       <workItem from="1581522626720" duration="2020000" />
+      <workItem from="1581524880543" duration="1541000" />
     </task>
     <servers />
   </component>
@@ -217,9 +220,9 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="745" y="0" width="765" height="969" maximized="true" key="dock-window-1/0.0.1504.963@0.0.1504.963" timestamp="1581523242039" />
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1581365675439">
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1581525733655">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1581365675439" />
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1581525733655" />
   </component>
 </project>

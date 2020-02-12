@@ -11,6 +11,7 @@
         </e>
         <e p="GameManager.cs" t="Include" />
         <e p="GameSetup.cs" t="Include" />
+        <e p="PlatformMovement.cs" t="Include" />
         <e p="PUHeavyScript.cs" t="Include" />
         <e p="PUSpikeScript.cs" t="Include" />
         <e p="Scripts" t="Include">
