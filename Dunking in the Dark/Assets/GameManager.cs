@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
         p1 = GameObject.FindGameObjectWithTag("Player1");
         p2 = GameObject.FindGameObjectWithTag("Player2");
         goal = GameObject.FindGameObjectWithTag("Goal");
+        p1Score = PlayerPrefs.GetFloat("p1Score");
+        p2Score = PlayerPrefs.GetFloat("p2Score");
         
         p1Text.SetText("PLAYER 1\n" + p1Score);
         p2Text.SetText("PLAYER 2\n" + p2Score);
@@ -246,8 +249,36 @@ public class GameManager : MonoBehaviour
 
     private void ExitGame()
     {
-        print("Game should be exiting!");
+        float gameCount = PlayerPrefs.GetFloat("gameCount");
+        gameCount++;
+        if (gameCount >= (PlayerPrefs.GetFloat("maxGames") - .1f))
+        {
+            //End the game!
+            print("Game should be exiting!");
+            int winner;
+            if (p1Score > p2Score)
+            {
+                winner = 1;
+            }
+            else
+            {
+                winner = 2;
+            }
+
+            PlayerPrefs.SetFloat("winner", winner);
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("gameCount", gameCount);
+            PlayerPrefs.SetFloat("p1Score", p1Score);
+            PlayerPrefs.SetFloat("p2Score", p2Score);
+            SceneManager.LoadScene(Random.Range(1, 1));
+        }
+        
     }
+    
+    
 
     public void addP1()
     {
