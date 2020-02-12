@@ -8,9 +8,11 @@ public class MatchPlayers : MonoBehaviour
     private GameObject playerTwo;
     private GameObject goal;
     private Material mat;
-    [SerializeField] private float p1Distance;
-    [SerializeField] private float p2Distance;
-    [SerializeField] private float goalDistance;
+    public float p1Distance;
+    public float p2Distance;
+    public float goalDistance;
+
+    [HideInInspector] public float totalLerp = 1;
     
     //Slow lookup at the start, so we get fast lookups later
     private static readonly int PosOne = Shader.PropertyToID("_PosOne");
@@ -37,9 +39,9 @@ public class MatchPlayers : MonoBehaviour
         Vector4 posGoal = goal.transform.position;
         mat.SetVector(PosOne, posOne);
         mat.SetVector(PosTwo, posTwo);
-        mat.SetFloat(OneRad, p1Distance);
-        mat.SetFloat(TwoRad, p2Distance);
+        mat.SetFloat(OneRad, p1Distance * totalLerp);
+        mat.SetFloat(TwoRad, p2Distance * totalLerp);
         mat.SetVector(PosGoal, posGoal);
-        mat.SetFloat(GoalRad, goalDistance);
+        mat.SetFloat(GoalRad, goalDistance * totalLerp);
     }
 }

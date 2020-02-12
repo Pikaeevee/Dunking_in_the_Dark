@@ -26,7 +26,7 @@
                 {
                     "name": "",
                     "id": "862071cc-1ca0-4f8e-95c1-2fb0a5df0a39",
-                    "path": "<Joystick>/stick",
+                    "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "GameController",
@@ -37,7 +37,7 @@
                 {
                     "name": "",
                     "id": "9b21df5d-c5b3-4c15-bc5e-85c66da0c20a",
-                    "path": "<Pen>/barrel3",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "GameController",
