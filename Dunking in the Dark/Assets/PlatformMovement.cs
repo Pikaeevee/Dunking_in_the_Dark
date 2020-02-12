@@ -60,11 +60,11 @@ public class PlatformMovement : MonoBehaviour
 
         if (movingToFirst)
         {
-            StartCoroutine(movePositions(points[1], points[0]));
+            StartCoroutine(movePositions(rig.position + points[1], rig.position + points[0]));
         }
         else
         {
-            StartCoroutine(movePositions(points[0], points[1]));
+            StartCoroutine(movePositions(rig.position + points[0], rig.position + points[1]));
         }
 
         movingToFirst = !movingToFirst;
@@ -73,9 +73,9 @@ public class PlatformMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(new Vector3(points[0].x, points[0].y, 0), .2f);
-        Gizmos.DrawWireSphere(new Vector3(points[1].x, points[1].y, 0), .2f);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(points[0].x, points[0].y, 0), .2f);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(points[1].x, points[1].y, 0), .2f);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(new Vector3(points[0].x, points[0].y, 0), new Vector3(points[1].x, points[1].y, 0));
+        Gizmos.DrawLine(transform.position + new Vector3(points[0].x, points[0].y, 0), transform.position + new Vector3(points[1].x, points[1].y, 0));
     }
 }
