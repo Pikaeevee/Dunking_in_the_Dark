@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 541882944645035557}
   - component: {fileID: 541882944645035556}
   - component: {fileID: 541882944645035611}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Icy Floor Black and White (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4197093226864219567}
   - component: {fileID: 5553854305443548141}
   - component: {fileID: 7985096099896694509}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Normal Floor Black and White Without Basketball
   m_TagString: Untagged
   m_Icon: {fileID: 0}

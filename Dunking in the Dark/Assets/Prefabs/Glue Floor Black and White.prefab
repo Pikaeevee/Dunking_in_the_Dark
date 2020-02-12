@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5099535067979018539}
   - component: {fileID: 8417292141871257584}
   - component: {fileID: 5084268401720750792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Glue Floor Black and White
   m_TagString: Untagged
   m_Icon: {fileID: 0}

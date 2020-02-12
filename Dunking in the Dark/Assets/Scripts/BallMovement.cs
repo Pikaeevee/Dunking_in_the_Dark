@@ -110,10 +110,15 @@ public class BallMovement : MonoBehaviour
     //TODO: Make these do something more interesing than just scale
     public void setSpikey(float duration)
     {
+        if (spikeyTime <= 0)
+        {
+            isSpikey = true;
+            howCloseToJump *= 2;
+            transform.localScale = transform.localScale * 1.2f;
+        }
+
         spikeyTime += duration;
-        isSpikey = true;
-        howCloseToJump *= 2;
-        transform.localScale = transform.localScale * 1.2f;
+        
     }
 
     public void undoSpikey()
@@ -129,7 +134,7 @@ public class BallMovement : MonoBehaviour
         print("Attempting to Jump!");
         //Raycast to make sure we can jump
         RaycastHit2D results;
-        LayerMask mask = LayerMask.GetMask("Default");
+        LayerMask mask = LayerMask.GetMask("Ground");
         results = Physics2D.Raycast(transform.position, howCloseToJump.normalized, howCloseToJump.magnitude, mask);
         if (results.collider)
         {
