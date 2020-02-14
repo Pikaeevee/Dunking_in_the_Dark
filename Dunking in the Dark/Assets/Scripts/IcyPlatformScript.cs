@@ -20,7 +20,7 @@ public class IcyPlatformScript : MonoBehaviour
     // set player's onIce variable to true/false 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
             collision.gameObject.GetComponent<BallMovement>().onIce = true; 
         }
@@ -28,7 +28,7 @@ public class IcyPlatformScript : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
             collision.gameObject.GetComponent<BallMovement>().onIce = false;
         }

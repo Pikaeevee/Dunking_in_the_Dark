@@ -75,7 +75,8 @@ public class BallMovement : MonoBehaviour
 
         if (onIce)
         {
-            rb.AddForce(new Vector2(velocity, currPos.y));
+            rb.velocity = Vector2.Lerp(new Vector2(velocity, rb.velocity.y), rb.velocity, 0.01f);
+            //rb.AddForce(new Vector2(velocity, currPos.y));
         }
         else
         {
