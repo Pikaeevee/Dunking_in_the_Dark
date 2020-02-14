@@ -1287,6 +1287,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: jumpButton
+      value: Jump_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: horizAxis
+      value: Horizontal_P2
+      objectReference: {fileID: 0}
     - target: {fileID: 8797354047815553251, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
       propertyPath: m_Name
@@ -2726,6 +2736,7 @@ MonoBehaviour:
   speedMultiplier: 1.5
   duration: 8
   enemyDebuff: 0
+  respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
 --- !u!58 &772868123
 CircleCollider2D:
@@ -4781,6 +4792,7 @@ MonoBehaviour:
   speedMultiplier: 1.5
   duration: 8
   enemyDebuff: 0
+  respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
 --- !u!58 &1509054167
 CircleCollider2D:

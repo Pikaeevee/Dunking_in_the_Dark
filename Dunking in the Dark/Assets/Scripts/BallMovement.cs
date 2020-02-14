@@ -20,7 +20,10 @@ public class BallMovement : MonoBehaviour
 
     public KeyCode jumpKey;
     public KeyCode leftKey;
-    public KeyCode rightKey; 
+    public KeyCode rightKey;
+
+    public string jumpButton = "Jump_P1";
+    public string horizAxis = "Horizontal_P1";
 
     Vector2 movement;
 
@@ -51,6 +54,7 @@ public class BallMovement : MonoBehaviour
         jumpcooldown -= Time.deltaTime;
         Vector2 currPos = transform.position;
 
+        /*
         if (Input.GetKey(leftKey))
         {
             velocity = -1 * speed * speedMultiplier;//* Time.deltaTime; 
@@ -64,8 +68,9 @@ public class BallMovement : MonoBehaviour
             //Base case so that ball doesn't just move forever
             velocity = 0;
         }
+        */
 
-        //velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        velocity = Input.GetAxis(horizAxis) * speed * Time.deltaTime;
 
         // check for different platforms 
         if (onSticky)
@@ -87,7 +92,7 @@ public class BallMovement : MonoBehaviour
 
 
         // jump button tbt, currently default 
-        if (Input.GetKey(jumpKey))
+        if (Input.GetButtonDown(jumpButton))
         {
             if (jumpcooldown <= 0)
             {
