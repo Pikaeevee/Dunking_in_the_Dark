@@ -70,7 +70,7 @@ public class BallMovement : MonoBehaviour
         }
         */
 
-        velocity = Input.GetAxis(horizAxis) * speed * Time.deltaTime;
+        velocity = Input.GetAxis(horizAxis) * speed * speedMultiplier;
 
         // check for different platforms 
         if (onSticky)
@@ -80,7 +80,7 @@ public class BallMovement : MonoBehaviour
 
         if (onIce)
         {
-            rb.velocity = Vector2.Lerp(new Vector2(velocity, rb.velocity.y), rb.velocity, 0.01f);
+            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(velocity, rb.velocity.y),  0.01f);
             //rb.AddForce(new Vector2(velocity, currPos.y));
         }
         else
