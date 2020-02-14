@@ -132,7 +132,7 @@ public class BallMovement : MonoBehaviour
 
     private void Jump()
     {
-        print("Attempting to Jump!");
+        //print("Attempting to Jump!");
         //Raycast to make sure we can jump
         RaycastHit2D results;
         LayerMask mask = LayerMask.GetMask("Ground");

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5099535067979018539}
   - component: {fileID: 8417292141871257584}
   - component: {fileID: 5084268401720750792}
+  - component: {fileID: 1034738821556895048}
   m_Layer: 10
   m_Name: Glue Floor Black and White
-  m_TagString: Untagged
+  m_TagString: StickyPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,3 +109,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 51.9, y: 10.009766}
   m_EdgeRadius: 0
+--- !u!114 &1034738821556895048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3597934886345076092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459f9d3eef201de4fbbdca00b87639be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
