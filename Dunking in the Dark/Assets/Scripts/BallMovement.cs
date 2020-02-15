@@ -92,10 +92,11 @@ public class BallMovement : MonoBehaviour
 
 
         // jump button tbt, currently default 
-        if (Input.GetButtonDown(jumpButton))
+        if (Input.GetButton(jumpButton))
         {
             if (jumpcooldown <= 0)
             {
+                print("Jumping!");
                 Jump();
             }
         }
@@ -147,7 +148,8 @@ public class BallMovement : MonoBehaviour
             //print("We correctly collided!");
             //We hit something!
             // assuming ball is rigidbody
-            rb.AddForce(Vector2.up * jumpSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, Math.Abs(rb.velocity.y));
+            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpcooldown = jumpWait;
         }
         else
