@@ -1289,13 +1289,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
-      propertyPath: jumpButton
-      value: Jump_P2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
-        type: 3}
-      propertyPath: horizAxis
-      value: Horizontal_P2
+      propertyPath: jumpSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8797354047815553251, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
@@ -2550,25 +2545,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5528262515591033524, guid: 13134688209f1b9499287aa8f0453be5,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5528262515591033524, guid: 13134688209f1b9499287aa8f0453be5,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 95df3fed910bb31419e0b02580340592, type: 2}
     - target: {fileID: 5528262515591033526, guid: 13134688209f1b9499287aa8f0453be5,
         type: 3}
       propertyPath: jumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5528262515591033526, guid: 13134688209f1b9499287aa8f0453be5,
-        type: 3}
-      propertyPath: howCloseToJump.y
-      value: -0.75
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13134688209f1b9499287aa8f0453be5, type: 3}
