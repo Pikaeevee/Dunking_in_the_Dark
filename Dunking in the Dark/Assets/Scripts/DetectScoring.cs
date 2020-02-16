@@ -8,8 +8,10 @@ public class DetectScoring : MonoBehaviour
     //This is supplied by the main camera
     private AudioSource source;
     [SerializeField] private AudioClip scoringNoise;
+    [SerializeField] private float noScoreDuration = 1f;
 
     [SerializeField] private Vector2 directionBallEnters;
+    
     
     //Don't need to do this, unless the hoop itself has a noise
     // Start is called before the first frame update
@@ -36,6 +38,7 @@ public class DetectScoring : MonoBehaviour
             {
                 source.PlayOneShot(scoringNoise);
                 GameManager.instance.addP1();
+                StartCoroutine(stopScoring());
             }
         }
         else if (other.gameObject.CompareTag("Player2"))
@@ -45,6 +48,7 @@ public class DetectScoring : MonoBehaviour
             {
                 source.PlayOneShot(scoringNoise);
                 GameManager.instance.addP2();
+                StartCoroutine(stopScoring());
             }
         }
     }
@@ -61,5 +65,13 @@ public class DetectScoring : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + directionBallEnters.x, transform.position.y + directionBallEnters.y, transform.position.z));
         Gizmos.DrawWireCube(new Vector3(transform.position.x + directionBallEnters.x, transform.position.y + directionBallEnters.y, transform.position.z), Vector3.one * .1f);
+    }
+
+    IEnumerator stopScoring()
+    {
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+        box.enabled = false;
+        yield return new WaitForSeconds(noScoreDuration);
+        box.enabled = true;
     }
 }

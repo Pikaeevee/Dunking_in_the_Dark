@@ -20,7 +20,10 @@ public class BallMovement : MonoBehaviour
 
     public KeyCode jumpKey;
     public KeyCode leftKey;
-    public KeyCode rightKey; 
+    public KeyCode rightKey;
+
+    public string jumpButton = "Jump_P1";
+    public string horizAxis = "Horizontal_P1";
 
     Vector2 movement;
 
@@ -51,6 +54,7 @@ public class BallMovement : MonoBehaviour
         jumpcooldown -= Time.deltaTime;
         Vector2 currPos = transform.position;
 
+        /*
         if (Input.GetKey(leftKey))
         {
             velocity = -1 * speed * speedMultiplier;//* Time.deltaTime; 
@@ -64,8 +68,9 @@ public class BallMovement : MonoBehaviour
             //Base case so that ball doesn't just move forever
             velocity = 0;
         }
+        */
 
-        //velocity = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        velocity = Input.GetAxis(horizAxis) * speed * speedMultiplier;
 
         // check for different platforms 
         if (onSticky)
@@ -75,7 +80,8 @@ public class BallMovement : MonoBehaviour
 
         if (onIce)
         {
-            rb.AddForce(new Vector2(velocity, currPos.y));
+            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(velocity, rb.velocity.y),  0.01f);
+            //rb.AddForce(new Vector2(velocity, currPos.y));
         }
         else
         {
@@ -86,7 +92,7 @@ public class BallMovement : MonoBehaviour
 
 
         // jump button tbt, currently default 
-        if (Input.GetKey(jumpKey))
+        if (Input.GetButtonDown(jumpButton))
         {
             if (jumpcooldown <= 0)
             {
@@ -110,10 +116,15 @@ public class BallMovement : MonoBehaviour
     //TODO: Make these do something more interesing than just scale
     public void setSpikey(float duration)
     {
+        if (spikeyTime <= 0)
+        {
+            isSpikey = true;
+            howCloseToJump *= 2;
+            transform.localScale = transform.localScale * 1.2f;
+        }
+
         spikeyTime += duration;
-        isSpikey = true;
-        howCloseToJump *= 2;
-        transform.localScale = transform.localScale * 1.2f;
+        
     }
 
     public void undoSpikey()
@@ -126,10 +137,10 @@ public class BallMovement : MonoBehaviour
 
     private void Jump()
     {
-        print("Attempting to Jump!");
+        //print("Attempting to Jump!");
         //Raycast to make sure we can jump
         RaycastHit2D results;
-        LayerMask mask = LayerMask.GetMask("Default");
+        LayerMask mask = LayerMask.GetMask("Ground");
         results = Physics2D.Raycast(transform.position, howCloseToJump.normalized, howCloseToJump.magnitude, mask);
         if (results.collider)
         {

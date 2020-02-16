@@ -1287,6 +1287,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: jumpButton
+      value: Jump_P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: horizAxis
+      value: Horizontal_P2
+      objectReference: {fileID: 0}
     - target: {fileID: 8797354047815553251, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
       propertyPath: m_Name
@@ -2726,6 +2736,7 @@ MonoBehaviour:
   speedMultiplier: 1.5
   duration: 8
   enemyDebuff: 0
+  respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
 --- !u!58 &772868123
 CircleCollider2D:
@@ -4311,7 +4322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
+  m_HorizontalAxis: Horizontal_P1
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
@@ -4781,6 +4792,7 @@ MonoBehaviour:
   speedMultiplier: 1.5
   duration: 8
   enemyDebuff: 0
+  respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
 --- !u!58 &1509054167
 CircleCollider2D:

@@ -75,8 +75,8 @@ public class PlatformMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(points[0].x, points[0].y, 0), .2f);
-        Gizmos.DrawWireSphere(transform.position + new Vector3(points[1].x, points[1].y, 0), .2f);
+        Gizmos.DrawWireSphere(new Vector3(offset.x, offset.y, transform.position.z) + new Vector3(points[0].x, points[0].y, 0), .2f);
+        Gizmos.DrawWireSphere(new Vector3(offset.x, offset.y, transform.position.z) + new Vector3(points[1].x, points[1].y, 0), .2f);
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position + new Vector3(points[0].x, points[0].y, 0), transform.position + new Vector3(points[1].x, points[1].y, 0));
     }

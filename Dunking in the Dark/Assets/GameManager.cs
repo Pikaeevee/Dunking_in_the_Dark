@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
             }
 
             //Set our values
+            
             darknessMatcher.p1Distance = Mathf.Lerp(startDistance1, endDistance1, actualTime / timer);
             darknessMatcher.p2Distance = Mathf.Lerp(startDistance2, endDistance2, actualTime / timer);
             
