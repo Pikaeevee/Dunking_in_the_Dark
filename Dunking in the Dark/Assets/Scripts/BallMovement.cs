@@ -12,7 +12,9 @@ public class BallMovement : MonoBehaviour
     public float stickySpeed = 0.5f; // multiplier to normal velocity
 
     public bool onIce = false;
+    private bool endingIce = false;
     public bool onSticky = false;
+    private bool endingSticky = false;
     [SerializeField] private float jumpWait = .05f;
     private float jumpcooldown = 0;
 
@@ -40,6 +42,8 @@ public class BallMovement : MonoBehaviour
 
     private Sprite normalSprite;
     [SerializeField] private Sprite spikySprite;
+    private Color playerCol;
+    private Color tailCol;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +57,8 @@ public class BallMovement : MonoBehaviour
         }
 
         normalSprite = GetComponent<SpriteRenderer>().sprite;
+        playerCol = GetComponent<SpriteRenderer>().color;
+        tailCol = GetComponent<TrailRenderer>().startColor;
     }
 
     // Update is called once per frame
@@ -102,7 +108,7 @@ public class BallMovement : MonoBehaviour
 
 
         // jump button tbt, currently default 
-        if (Input.GetButton(jumpButton))
+        if (Input.GetButton(jumpButton) && hasControl <= 0)
         {
             if (jumpcooldown <= 0 && Mathf.Abs(rb.velocity.y) < speed * 1.5 * speedMultiplier)
             {
@@ -232,8 +238,6 @@ public class BallMovement : MonoBehaviour
     {
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         TrailRenderer trail = GetComponent<TrailRenderer>();
-        Color start = sprite.color;
-        Color tStart = trail.startColor;
         bool flipped = false;
         float count = 0;
         while (count < duration)
@@ -245,21 +249,71 @@ public class BallMovement : MonoBehaviour
             }
             else
             {
-                sprite.color = start;
-                trail.startColor = tStart;
+                sprite.color = playerCol;
+                trail.startColor = tailCol;
             }
             flipped = !flipped;
             yield return new WaitForSeconds(swapAmount);
             count += swapAmount;
         }
 
-        sprite.color = start;
-        trail.startColor = tStart;
+        sprite.color = playerCol;
+        trail.startColor = tailCol;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(howCloseToJump.x, howCloseToJump.y, 0));
+    }
+
+    public void StartIce()
+    {
+        onIce = true;
+        endingIce = false;
+        StopCoroutine("DeIce");
+        print("Ice on!");
+    }
+    public void StopIce()
+    {
+        endingIce = true;
+        StartCoroutine(DeIce());
+    }
+
+    IEnumerator DeIce()
+    {
+        print("Turning ice oof");
+        yield return new WaitForSeconds(1f);
+        print("Ice turned off");
+        onIce = !endingIce;
+    }
+    
+    public void StartSticky()
+    {
+        if (!onSticky)
+        {
+            GetComponent<Rigidbody2D>().mass = 1.3f;
+            GetComponent<Rigidbody2D>().velocity *= new Vector2(1, 0);
+        }
+
+        onSticky = true;
+        endingSticky = false;
+        StopCoroutine("DeSticky");
+        print("Ice on!");
+    }
+    public void StopSticky()
+    {
+        endingSticky = true;
+        StartCoroutine(DeSticky());
+    }
+
+    IEnumerator DeSticky()
+    {
+        yield return new WaitForSeconds(0.5f);
+        onSticky = !endingSticky;
+        if (!onSticky)
+        {
+           GetComponent<Rigidbody2D>().mass = 1;
+        }
     }
 }

@@ -11,6 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/IcyPlatformScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DetectScoring.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
@@ -23,6 +24,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/PUHeavyScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PUSpikeScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FollowPlayers.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -40,8 +42,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
         <option value="$PROJECT_DIR$/Assets/PUHeavyScript.cs" />
         <option value="$PROJECT_DIR$/Assets/PlatformMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectScoring.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/IcyPlatformScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
       </list>
     </option>
@@ -123,6 +127,7 @@
       <workItem from="1581799505112" duration="1592000" />
       <workItem from="1581803245759" duration="1916000" />
       <workItem from="1581873594007" duration="1701000" />
+      <workItem from="1581875844008" duration="2548000" />
     </task>
     <servers />
   </component>

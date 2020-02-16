@@ -23,7 +23,7 @@ public class IcyPlatformScript : MonoBehaviour
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
             Debug.Log("player on ice");
-            collision.gameObject.GetComponent<BallMovement>().onIce = true; 
+            collision.gameObject.GetComponent<BallMovement>().StartIce(); 
         }
     }
 
@@ -31,7 +31,7 @@ public class IcyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            collision.gameObject.GetComponent<BallMovement>().onIce = false;
+            collision.gameObject.GetComponent<BallMovement>().StopIce();
         }
     }
 }

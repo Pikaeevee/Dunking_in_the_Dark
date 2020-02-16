@@ -1287,12 +1287,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8797354047815553248, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
       propertyPath: spikySprite
       value: 
       objectReference: {fileID: 21300000, guid: 272a6abbedfc3c94290ed34df83fd0f4,
         type: 3}
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: stickySpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8797354047815553251, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
       propertyPath: m_Name
@@ -2545,6 +2560,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528262515591033524, guid: 13134688209f1b9499287aa8f0453be5,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528262515591033526, guid: 13134688209f1b9499287aa8f0453be5,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528262515591033526, guid: 13134688209f1b9499287aa8f0453be5,
+        type: 3}
+      propertyPath: howCloseToJump.y
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528262515591033526, guid: 13134688209f1b9499287aa8f0453be5,
+        type: 3}
+      propertyPath: stickySpeed
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13134688209f1b9499287aa8f0453be5, type: 3}

@@ -22,8 +22,8 @@ public class StickyPlatformScript : MonoBehaviour
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
             // make heavy
-            collision.gameObject.GetComponent<Rigidbody2D>().mass = 100; 
-            collision.gameObject.GetComponent<BallMovement>().onSticky = true;
+            //collision.gameObject.GetComponent<Rigidbody2D>().mass = 100;
+            collision.gameObject.GetComponent<BallMovement>().StartSticky();
         }
     }
 
@@ -32,8 +32,8 @@ public class StickyPlatformScript : MonoBehaviour
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
             // revert changes 
-            collision.gameObject.GetComponent<Rigidbody2D>().mass = 1;
-            collision.gameObject.GetComponent<BallMovement>().onSticky = false;
+            //collision.gameObject.GetComponent<Rigidbody2D>().mass = 1;
+            collision.gameObject.GetComponent<BallMovement>().StopSticky();
         }
     }
 }
