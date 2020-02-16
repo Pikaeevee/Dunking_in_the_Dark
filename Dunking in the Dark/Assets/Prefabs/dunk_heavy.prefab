@@ -114,4 +114,5 @@ MonoBehaviour:
   gravityMultiplier: 4
   duration: 4
   enemyDebuff: 0
-  powerupNoise: {fileID: 8300000, guid: bdebb13d6f0664c08bd3e6103c50f945, type: 3}
+  respawnTime: 10
+  powerupNoise: {fileID: 8300000, guid: 94123e52a36e948eea353d1fead690eb, type: 3}

@@ -69,7 +69,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GoalRad: 3
+    - _GoalRad: 2.4033434
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -98,3 +98,6 @@ Material:
     - _PosGoal: {r: 12.4, g: 3.4, b: 0, a: 0}
     - _PosOne: {r: 11.459999, g: -9.570598, b: 0, a: 0}
     - _PosTwo: {r: 13.459999, g: -9.570963, b: 0, a: 0}
+    - _PosGoal: {r: -10.2, g: 14.4, b: 0, a: 0}
+    - _PosOne: {r: 11.53, g: 34.116074, b: 0, a: 0}
+    - _PosTwo: {r: 13.53, g: 34.116074, b: 0, a: 0}

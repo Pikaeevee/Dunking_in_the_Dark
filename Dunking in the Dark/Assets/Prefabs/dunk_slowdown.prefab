@@ -114,4 +114,5 @@ MonoBehaviour:
   speedMultiplier: 0.75
   duration: 8
   enemyDebuff: 1
-  powerupNoise: {fileID: 0}
+  respawnTime: 10
+  powerupNoise: {fileID: 8300000, guid: bdebb13d6f0664c08bd3e6103c50f945, type: 3}
