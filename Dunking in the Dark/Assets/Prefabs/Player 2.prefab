@@ -121,7 +121,7 @@ MonoBehaviour:
   speed: 15
   jumpSpeed: 30
   howCloseToJump: {x: 0, y: -0.75}
-  stickySpeed: 0.5
+  stickySpeed: 0.3
   onIce: 0
   onSticky: 0
   jumpWait: 0.05
@@ -131,6 +131,7 @@ MonoBehaviour:
   jumpButton: Jump_P2
   horizAxis: Horizontal_P2
   speedMultiplier: 1
+  spikySprite: {fileID: 0}
 --- !u!96 &8797354047815553261
 TrailRenderer:
   serializedVersion: 2
