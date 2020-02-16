@@ -11,6 +11,8 @@ public class DetectScoring : MonoBehaviour
     [SerializeField] private float noScoreDuration = 1f;
 
     [SerializeField] private Vector2 directionBallEnters;
+
+    public GameObject bottomWall; 
     
     
     //Don't need to do this, unless the hoop itself has a noise
@@ -69,9 +71,13 @@ public class DetectScoring : MonoBehaviour
 
     IEnumerator stopScoring()
     {
+        // disable bottom wall to prevent scoring 
+        BoxCollider2D wallbox = bottomWall.GetComponent<BoxCollider2D>();
         BoxCollider2D box = GetComponent<BoxCollider2D>();
         box.enabled = false;
+        wallbox.enabled = false; 
         yield return new WaitForSeconds(noScoreDuration);
         box.enabled = true;
+        wallbox.enabled = true; 
     }
 }
