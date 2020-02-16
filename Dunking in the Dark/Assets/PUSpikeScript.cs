@@ -17,6 +17,7 @@ public class PUSpikeScript : MonoBehaviour
     void Start()
     {
         powerupSFX = Camera.main.GetComponent<AudioSource>(); //GetComponent<AudioSource>();
+        powerupSFX.volume = 0.5f;
         if (duration > respawnTime)
         {
             Debug.LogError("Weirdness in powerup, it's respawning before it has finished");
