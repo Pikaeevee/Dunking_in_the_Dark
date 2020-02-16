@@ -44,6 +44,7 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private Sprite spikySprite;
     private Color playerCol;
     private Color tailCol;
+    public float collisionSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,7 @@ public class BallMovement : MonoBehaviour
         normalSprite = GetComponent<SpriteRenderer>().sprite;
         playerCol = GetComponent<SpriteRenderer>().color;
         tailCol = GetComponent<TrailRenderer>().startColor;
+        collisionSpeed = 0;
     }
 
     // Update is called once per frame
@@ -128,6 +130,12 @@ public class BallMovement : MonoBehaviour
                 undoSpikey();
             }
         }
+    }
+    
+    //Needed for collision detection
+    private void FixedUpdate()
+    {
+        collisionSpeed = rb.velocity.magnitude;
     }
 
     //TODO: Make these do something more interesing than just scale
@@ -208,8 +216,8 @@ public class BallMovement : MonoBehaviour
             else
             {
                 print("Knocked someone!");
-                Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
-                if (rb.velocity.magnitude >= otherRb.velocity.magnitude)
+                BallMovement control = other.gameObject.GetComponent<BallMovement>();
+                if (collisionSpeed > control.collisionSpeed)
                 {
                     //Knock them!
                     print("Knocked them!");
@@ -220,6 +228,7 @@ public class BallMovement : MonoBehaviour
                     //Knock us!
                     print("Knocked us!");
                     loseControl(1.5f);
+                    
                 }
             }
         }
