@@ -267,14 +267,14 @@ public class GameManager : MonoBehaviour
             }
 
             PlayerPrefs.SetFloat("winner", winner);
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene("Win Screen");
         }
         else
         {
             PlayerPrefs.SetFloat("gameCount", gameCount);
             PlayerPrefs.SetFloat("p1Score", p1Score);
             PlayerPrefs.SetFloat("p2Score", p2Score);
-            SceneManager.LoadScene(Random.Range(1, 1));
+            SceneManager.LoadScene(Random.Range(1, 3));
         }
         
     }

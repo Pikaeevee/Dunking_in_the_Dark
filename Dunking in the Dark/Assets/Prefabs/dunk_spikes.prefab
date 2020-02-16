@@ -111,3 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecb0796c8953ed46b9aec2991e79209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 8
+  respawnTime: 10
+  spikeNoise: {fileID: 8300000, guid: 1744017f1a3a941d998f89fe8cbc7113, type: 3}
