@@ -38,6 +38,9 @@ public class BallMovement : MonoBehaviour
 
     private float hasControl;
 
+    private Sprite normalSprite;
+    [SerializeField] private Sprite spikySprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,8 @@ public class BallMovement : MonoBehaviour
             Debug.Log("Moving the players to the correct layer");
             gameObject.layer = 9;
         }
+
+        normalSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
@@ -126,6 +131,7 @@ public class BallMovement : MonoBehaviour
         {
             isSpikey = true;
             howCloseToJump *= 2;
+            GetComponent<SpriteRenderer>().sprite = spikySprite;
             transform.localScale = transform.localScale * 1.2f;
         }
 
@@ -138,6 +144,7 @@ public class BallMovement : MonoBehaviour
         spikeyTime = 0;
         isSpikey = false;
         howCloseToJump /= 2;
+        GetComponent<SpriteRenderer>().sprite = normalSprite;
         transform.localScale = transform.localScale / 1.2f;
     }
 

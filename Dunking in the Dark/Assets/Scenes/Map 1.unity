@@ -1287,6 +1287,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+        type: 3}
+      propertyPath: spikySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 272a6abbedfc3c94290ed34df83fd0f4,
+        type: 3}
     - target: {fileID: 8797354047815553251, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
       propertyPath: m_Name
