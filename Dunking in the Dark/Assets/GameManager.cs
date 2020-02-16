@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
                 winner = 2;
             }
 
-            PlayerPrefs.SetFloat("winner", winner);
+            PlayerPrefs.SetInt("winner", winner);
             SceneManager.LoadScene("Win Screen");
         }
         else
