@@ -1289,14 +1289,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
-      propertyPath: jumpButton
-      value: Jump_P2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8797354047815553250, guid: 1aa98b8386186eb43a47e5b955656828,
+      propertyPath: spikySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 272a6abbedfc3c94290ed34df83fd0f4,
         type: 3}
-      propertyPath: horizAxis
-      value: Horizontal_P2
-      objectReference: {fileID: 0}
     - target: {fileID: 8797354047815553251, guid: 1aa98b8386186eb43a47e5b955656828,
         type: 3}
       propertyPath: m_Name

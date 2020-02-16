@@ -36,6 +36,11 @@ public class BallMovement : MonoBehaviour
     //Powerup Modifiers
     public float speedMultiplier = 1;
 
+    private float hasControl;
+
+    private Sprite normalSprite;
+    [SerializeField] private Sprite spikySprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +51,8 @@ public class BallMovement : MonoBehaviour
             Debug.Log("Moving the players to the correct layer");
             gameObject.layer = 9;
         }
+
+        normalSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
@@ -71,31 +78,35 @@ public class BallMovement : MonoBehaviour
         */
 
         velocity = Input.GetAxis(horizAxis) * speed * speedMultiplier;
+        hasControl -= Time.deltaTime;
+        if (hasControl < 0)
+        {
+            // check for different platforms 
+            if (onSticky)
+            {
+                velocity *= stickySpeed; // slows down 
+            }
 
-        // check for different platforms 
-        if (onSticky)
-        {
-            velocity *= stickySpeed; // slows down 
-        }
-
-        if (onIce)
-        {
-            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(velocity, rb.velocity.y),  0.01f);
-            //rb.AddForce(new Vector2(velocity, currPos.y));
-        }
-        else
-        {
-            //Moving over to a rigidbody system
-            rb.velocity = new Vector2(velocity, rb.velocity.y);
-            //transform.position = new Vector2(currPos.x + velocity, currPos.y);
+            if (onIce)
+            {
+                rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(velocity, rb.velocity.y), 0.01f);
+                //rb.AddForce(new Vector2(velocity, currPos.y));
+            }
+            else
+            {
+                //Moving over to a rigidbody system
+                rb.velocity = new Vector2(velocity, rb.velocity.y);
+                //transform.position = new Vector2(currPos.x + velocity, currPos.y);
+            }
         }
 
 
         // jump button tbt, currently default 
-        if (Input.GetButtonDown(jumpButton))
+        if (Input.GetButton(jumpButton))
         {
-            if (jumpcooldown <= 0)
+            if (jumpcooldown <= 0 && Mathf.Abs(rb.velocity.y) < speed * 1.5 * speedMultiplier)
             {
+                print("Jumping!");
                 Jump();
             }
         }
@@ -120,6 +131,7 @@ public class BallMovement : MonoBehaviour
         {
             isSpikey = true;
             howCloseToJump *= 2;
+            GetComponent<SpriteRenderer>().sprite = spikySprite;
             transform.localScale = transform.localScale * 1.2f;
         }
 
@@ -132,6 +144,7 @@ public class BallMovement : MonoBehaviour
         spikeyTime = 0;
         isSpikey = false;
         howCloseToJump /= 2;
+        GetComponent<SpriteRenderer>().sprite = normalSprite;
         transform.localScale = transform.localScale / 1.2f;
     }
 
@@ -147,7 +160,8 @@ public class BallMovement : MonoBehaviour
             //print("We correctly collided!");
             //We hit something!
             // assuming ball is rigidbody
-            rb.AddForce(Vector2.up * jumpSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, Math.Abs(rb.velocity.y));
+            rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpcooldown = jumpWait;
         }
         else
@@ -182,9 +196,65 @@ public class BallMovement : MonoBehaviour
             if (isSpikey)
             {
                 //Pop the other player!
-                print("Popped you!");
+                print("Popped other player!");
+                other.gameObject.GetComponent<BallMovement>().loseControl(4f);
+            }
+            else
+            {
+                print("Knocked someone!");
+                Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
+                if (rb.velocity.magnitude >= otherRb.velocity.magnitude)
+                {
+                    //Knock them!
+                    print("Knocked them!");
+                    other.gameObject.GetComponent<BallMovement>().loseControl(1.5f);
+                }
+                else
+                {
+                    //Knock us!
+                    print("Knocked us!");
+                    loseControl(1.5f);
+                }
             }
         }
+    }
+
+    public void loseControl(float time)
+    {
+        if (hasControl > 0) return;
+        if (isSpikey) return;
+        rb.velocity = rb.velocity * 1.2f;
+        hasControl = time;
+        StartCoroutine(Blink(time, .25f));
+    }
+
+    IEnumerator Blink(float duration, float swapAmount)
+    {
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        TrailRenderer trail = GetComponent<TrailRenderer>();
+        Color start = sprite.color;
+        Color tStart = trail.startColor;
+        bool flipped = false;
+        float count = 0;
+        while (count < duration)
+        {
+            if (flipped)
+            {
+                sprite.color = Color.white;
+                trail.startColor = Color.white;
+            }
+            else
+            {
+                sprite.color = start;
+                trail.startColor = tStart;
+            }
+            flipped = !flipped;
+            yield return new WaitForSeconds(swapAmount);
+            count += swapAmount;
+        }
+
+        sprite.color = start;
+        trail.startColor = tStart;
     }
 
     private void OnDrawGizmosSelected()
