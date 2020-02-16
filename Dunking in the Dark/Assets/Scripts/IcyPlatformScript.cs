@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class IcyPlatformScript : MonoBehaviour
 {
+    public AudioSource powerupSFX;
     // Start is called before the first frame update
     void Start()
     {
-        
+        powerupSFX = GetComponent<AudioSource>();
+        powerupSFX.loop = true;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -22,6 +25,7 @@ public class IcyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
+            powerupSFX.Play();
             Debug.Log("player on ice");
             collision.gameObject.GetComponent<BallMovement>().onIce = true; 
         }
@@ -31,6 +35,7 @@ public class IcyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
+            powerupSFX.Stop();
             collision.gameObject.GetComponent<BallMovement>().onIce = false;
         }
     }
