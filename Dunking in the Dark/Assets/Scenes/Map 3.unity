@@ -2722,7 +2722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
+  m_HorizontalAxis: Horizontal_P1
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
@@ -4787,16 +4787,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
         type: 3}
-      propertyPath: goalPoints.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
       propertyPath: darknessPlane
       value: 
       objectReference: {fileID: 283479470}
@@ -4815,106 +4805,6 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1302631816}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: lightLerpTime
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: playerCircleChange
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: lightsOnTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: lightsOffTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: gameTime
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: goalRespawnTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: goalPoints.Array.data[0].y
-      value: -4.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: goalPoints.Array.data[0].x
-      value: -10.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[0].x
-      value: -33.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[0].y
-      value: -7.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: goalPoints.Array.data[1].x
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: goalPoints.Array.data[1].y
-      value: 33.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: goalPoints.Array.data[2].x
-      value: -10.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: goalPoints.Array.data[2].y
-      value: 13.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[1].x
-      value: 12.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[1].y
-      value: -7.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[2].x
-      value: -33.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[2].y
-      value: 34.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[3].x
-      value: 12.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
-        type: 3}
-      propertyPath: respawnPoints.Array.data[3].y
-      value: 34.12
-      objectReference: {fileID: 0}
     - target: {fileID: 4882907442861897367, guid: 6be1454fd0639fa49870cbd6597cda32,
         type: 3}
       propertyPath: m_Name
