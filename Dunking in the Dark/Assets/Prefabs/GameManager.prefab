@@ -43,16 +43,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a79b5a746087f4496d038727e2bc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 50
+  gameTime: 60
   p1Score: 0
   p2Score: 0
   lightsOnTime: 10
-  lightsOffTime: 10
+  lightsOffTime: 20
   lastXLight: 20
+  lightLerpTime: 4
+  playerCircleChange: 2
   respawnRandomly: 0
   respawnBoxDimensions: {x: 18.91, y: 9.2}
   respawnPoints:
-  - {x: 1, y: 1}
+  - {x: -33.01, y: -7.79}
+  - {x: 12.46, y: -7.18}
+  - {x: -33.04, y: 34.38}
+  - {x: 12.53, y: 34.12}
+  goalRespawnTime: 3
+  goalPoints:
+  - {x: 12.4, y: 3.4}
+  - {x: -33.1, y: 26.7}
+  - {x: -10.2, y: 13.88}
   darknessPlane: {fileID: 0}
   scoreText: {fileID: 0}
   p1Text: {fileID: 0}
