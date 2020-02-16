@@ -95,6 +95,12 @@ Material:
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _Pos: {r: 0, g: 0, b: 0, a: 0}
     - _Pos1: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< Updated upstream
     - _PosGoal: {r: 12.4, g: 19.76, b: 0, a: 0}
     - _PosOne: {r: 11.46, g: -9.571002, b: 0, a: 0}
     - _PosTwo: {r: 13.46, g: -9.570998, b: 0, a: 0}
+=======
+    - _PosGoal: {r: -10.2, g: 14.4, b: 0, a: 0}
+    - _PosOne: {r: 11.53, g: 34.116074, b: 0, a: 0}
+    - _PosTwo: {r: 13.53, g: 34.116074, b: 0, a: 0}
+>>>>>>> Stashed changes
