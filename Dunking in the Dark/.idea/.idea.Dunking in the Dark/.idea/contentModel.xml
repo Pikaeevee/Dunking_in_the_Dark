@@ -24,6 +24,7 @@
           <e p="PUSpeedScript.cs" t="Include" />
           <e p="startmenu.cs" t="Include" />
           <e p="StickyPlatformScript.cs" t="Include" />
+          <e p="victor.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
           <e p="2D Glow Stolen.shader" t="Include" />

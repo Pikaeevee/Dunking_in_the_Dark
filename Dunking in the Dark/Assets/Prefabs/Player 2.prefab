@@ -131,7 +131,9 @@ MonoBehaviour:
   jumpButton: Jump_P2
   horizAxis: Horizontal_P2
   speedMultiplier: 1
-  spikySprite: {fileID: 0}
+  spikySprite: {fileID: 21300000, guid: 272a6abbedfc3c94290ed34df83fd0f4, type: 3}
+  collisionSpeed: 0
+  bounceReturn: 0
 --- !u!96 &8797354047815553261
 TrailRenderer:
   serializedVersion: 2

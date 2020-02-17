@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
     
     IEnumerator interpolateLightsIn(float timer)
     {
+        
         //Wait a frame
         yield return null;
         float startDistance1 = darknessMatcher.p1Distance;
@@ -307,6 +308,7 @@ public class GameManager : MonoBehaviour
 
     private void respawnPlayers()
     {
+        print("Respawning Players!");
         //Set the players positions!
         Vector3 newPos = Vector3.zero;
         if (respawnRandomly)
@@ -321,6 +323,7 @@ public class GameManager : MonoBehaviour
         }
         p1.transform.position = newPos + new Vector3(-1, 0, 0);
         p2.transform.position = newPos + new Vector3(1, 0, 0);
+        print("Players Respawned");
     }
 
     private void OnDrawGizmos()
