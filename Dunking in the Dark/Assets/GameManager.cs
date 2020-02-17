@@ -313,8 +313,9 @@ public class GameManager : MonoBehaviour
             {
                 winner = 2;
             }
-
+            Debug.Log("this is winner: " + winner);
             PlayerPrefs.SetInt("winner", winner);
+            Debug.Log("this is set in PlayerPrefs: " + PlayerPrefs.GetInt("winner"));
             SceneManager.LoadScene("Win Screen");
         }
         else
