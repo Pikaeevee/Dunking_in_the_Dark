@@ -331,4 +331,10 @@ public class BallMovement : MonoBehaviour
     {
         endingSticky = .5f;
     }
+
+    private void OnDestroy()
+    {
+        print("Whomst'dve the fuck thought destroying me was a good idea");
+        
+    }
 }

@@ -71,7 +71,7 @@ public class PUHeavyScript : MonoBehaviour
 
         
 
-        rig.gravityScale = gravityMultiplier / rig.gravityScale;
+        rig.gravityScale = rig.gravityScale / gravityMultiplier;
 
         yield return new WaitForSeconds(respawnTime - duration);
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
