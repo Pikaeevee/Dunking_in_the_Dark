@@ -66,6 +66,7 @@
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.2.10/Editor/Signals/SignalEmitterInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/Editor/Internal/AdvancedDropdown/AdvancedDropdownWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/victor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/Editor/Internal/AdvancedDropdown/AdvancedDropdown.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEditor.TestRunner/TestRunner/Callbacks/EditModeRunnerCallback.cs" root0="SKIP_HIGHLIGHTING" />
@@ -89,10 +90,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectScoring.cs" />
         <option value="$PROJECT_DIR$/Assets/PUHeavyScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IcyPlatformScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -184,6 +185,7 @@
       <workItem from="1581899697079" duration="3347000" />
       <workItem from="1581908241540" duration="798000" />
       <workItem from="1581909833661" duration="1278000" />
+      <workItem from="1581911454216" duration="1237000" />
     </task>
     <servers />
   </component>

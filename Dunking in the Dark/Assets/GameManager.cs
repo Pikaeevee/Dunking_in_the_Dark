@@ -65,8 +65,8 @@ public class GameManager : MonoBehaviour
         p1 = GameObject.FindGameObjectWithTag("Player1");
         p2 = GameObject.FindGameObjectWithTag("Player2");
         goal = GameObject.FindGameObjectWithTag("Goal");
-        p1Score = PlayerPrefs.GetFloat("p1Score");
-        p2Score = PlayerPrefs.GetFloat("p2Score");
+        p1Score = 0;//PlayerPrefs.GetFloat("p1Score");
+        p2Score = 0;//PlayerPrefs.GetFloat("p2Score");
         
         p1Text.SetText("PLAYER 1\n" + p1Score);
         p2Text.SetText("PLAYER 2\n" + p2Score);
@@ -251,6 +251,53 @@ public class GameManager : MonoBehaviour
 
     private void ExitGame()
     {
+        //Best of 3
+        print("Game should be exiting!");
+        int winner;
+        if (p1Score > p2Score)
+        {
+            float p1Final = PlayerPrefs.GetFloat("p1Score");
+            p1Final += 1;
+            PlayerPrefs.SetFloat("p1Score", p1Final);
+            if (p1Final >= 1.9f)
+            {
+                //End game, p1 wins!
+                PlayerPrefs.SetInt("winner", 1);
+                SceneManager.LoadScene(4);
+            }
+            else
+            {
+                SceneManager.LoadScene(Random.Range(1, 3));
+            }
+            
+        }
+        else if (p2Score > p1Score)
+        {
+            float p2Final = PlayerPrefs.GetFloat("p2Score");
+            p2Final += 1;
+            PlayerPrefs.SetFloat("p2Score", p2Final);
+            if (p2Final >= 1.9f)
+            {
+                //End game, p1 wins!
+                PlayerPrefs.SetInt("winner", 2);
+                SceneManager.LoadScene(4);
+            }
+            else
+            {
+                SceneManager.LoadScene(Random.Range(1, 3));
+            }
+        }
+        else
+        {
+            print("Tie! No points!");
+            SceneManager.LoadScene(Random.Range(1, 3));
+        }
+        
+        
+        
+        
+        /*
+        //Normal
         float gameCount = PlayerPrefs.GetFloat("gameCount");
         gameCount++;
         if (gameCount >= (PlayerPrefs.GetFloat("maxGames") - .1f))
@@ -276,7 +323,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat("p1Score", p1Score);
             PlayerPrefs.SetFloat("p2Score", p2Score);
             SceneManager.LoadScene(Random.Range(1, 3));
-        }
+        }*/
         
     }
     
