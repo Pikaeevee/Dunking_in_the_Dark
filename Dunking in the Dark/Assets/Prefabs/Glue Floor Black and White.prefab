@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupSFX: {fileID: 2293681289854405573}
+  timeTillNoiseStop: 0.4
 --- !u!82 &2293681289854405573
 AudioSource:
   m_ObjectHideFlags: 0

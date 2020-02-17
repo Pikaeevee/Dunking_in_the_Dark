@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class StickyPlatformScript : MonoBehaviour
 {
+
     public AudioSource powerupSFX;
+    public float timeTillNoiseStop = .4f;
+    
+    private float timePlayerOff;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +19,15 @@ public class StickyPlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (timePlayerOff > 0)
+        {
+            timePlayerOff -= Time.deltaTime;
+            if (timePlayerOff <= 0)
+            {
+                timePlayerOff = 0;
+                powerupSFX.Stop();
+            }
+        }
     }
 
     // set player's onIce variable to true/false 
@@ -23,7 +35,10 @@ public class StickyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            powerupSFX.Play();
+            if (!powerupSFX.isPlaying)
+            {
+                powerupSFX.Play();
+            }
             // make heavy
             //collision.gameObject.GetComponent<Rigidbody2D>().mass = 100;
             collision.gameObject.GetComponent<BallMovement>().StartSticky();
@@ -34,7 +49,7 @@ public class StickyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            powerupSFX.Stop();
+            timePlayerOff = timeTillNoiseStop;
             // revert changes 
             //collision.gameObject.GetComponent<Rigidbody2D>().mass = 1;
             collision.gameObject.GetComponent<BallMovement>().StopSticky();

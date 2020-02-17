@@ -5,9 +5,9 @@ using UnityEngine;
 public class IcyPlatformScript : MonoBehaviour
 {
     public AudioSource powerupSFX;
+    public float timeTillNoiseStop = .5f;
 
-    private float soundCooldown = 1.0f;
-    private float soundTimer = 0;
+    private float timePlayerOff;
     
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,16 @@ public class IcyPlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        soundTimer -= Time.deltaTime;
+        if (timePlayerOff > 0)
+        {
+            timePlayerOff -= Time.deltaTime;
+            if (timePlayerOff <= 0)
+            {
+                timePlayerOff = 0;
+                powerupSFX.Stop();
+            }
+        }
+        
     }
 
     // be able to detect multiple collisions 
@@ -29,9 +38,8 @@ public class IcyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            if (soundTimer < 0)
+            if (!powerupSFX.isPlaying)
             {
-                soundTimer = soundCooldown;
                 powerupSFX.Play();
             }
             Debug.Log("player on ice");
@@ -43,7 +51,8 @@ public class IcyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
-            powerupSFX.Stop();
+            //powerupSFX.Stop();
+            timePlayerOff = timeTillNoiseStop;
             collision.gameObject.GetComponent<BallMovement>().StopIce();
         }
     }
