@@ -23,6 +23,7 @@ public class StickyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
+            Debug.Log("on sticky");
             powerupSFX.Play();
             // make heavy
             //collision.gameObject.GetComponent<Rigidbody2D>().mass = 100;
@@ -34,6 +35,7 @@ public class StickyPlatformScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
+            Debug.Log("exit sticky");
             powerupSFX.Stop();
             // revert changes 
             //collision.gameObject.GetComponent<Rigidbody2D>().mass = 1;
