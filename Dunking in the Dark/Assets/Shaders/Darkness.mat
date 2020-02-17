@@ -69,11 +69,11 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GoalRad: 3
+    - _GoalRad: 1.1044798
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OneRad: 4.618132
+    - _OneRad: 1.1044798
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -83,7 +83,7 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _TwoRad: 4.618132
+    - _TwoRad: 1.1044798
     - _UVSec: 0
     - _UseUIAlphaClip: 0
     - _WindQuality: 0
@@ -95,6 +95,6 @@ Material:
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _Pos: {r: 0, g: 0, b: 0, a: 0}
     - _Pos1: {r: 0, g: 0, b: 0, a: 0}
-    - _PosGoal: {r: 12.4, g: 19.76, b: 0, a: 0}
-    - _PosOne: {r: 0.38795403, g: -9.567487, b: 0, a: 0}
-    - _PosTwo: {r: -22.730024, g: 2.432818, b: 0, a: 0}
+    - _PosGoal: {r: -10.2, g: 13.88, b: 0, a: 0}
+    - _PosOne: {r: -34.01003, g: -9.559003, b: 0, a: 0}
+    - _PosTwo: {r: -32.01, g: -9.565347, b: 0, a: 0}
