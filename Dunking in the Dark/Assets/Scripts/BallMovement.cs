@@ -14,7 +14,6 @@ public class BallMovement : MonoBehaviour
     public bool onIce = false;
     private float endingIce = -1.0f;
     public bool onSticky = false;
-    private float endingSticky = -1.0f;
     [SerializeField] private float jumpWait = .05f;
     private float jumpcooldown = 0;
 
@@ -86,28 +85,7 @@ public class BallMovement : MonoBehaviour
         }
         */
         
-        //Control Ice and stickiness timers
-        if (endingIce > 0)
-        {
-            endingIce -= Time.deltaTime;
-            if (endingIce < 0)
-            {
-                print("Turning ice off");
-                onIce = false;
-            }
-        }
         
-        if (endingSticky > 0)
-        {
-            endingSticky -= Time.deltaTime;
-            if (endingSticky < 0)
-            {
-                print("Turning sticky off");
-                onSticky = false;
-                GetComponent<Rigidbody2D>().mass = 1;
-            }
-        }
-
         velocity = Input.GetAxis(horizAxis) * speed * speedMultiplier;
         hasControl -= Time.deltaTime;
         if (hasControl < 0)
@@ -115,14 +93,7 @@ public class BallMovement : MonoBehaviour
             // check for different platforms 
             if (onSticky)
             {
-                if (endingSticky > 0)
-                {
-                    velocity = Mathf.Lerp(velocity, velocity * stickySpeed, endingSticky * 2);
-                }
-                else
-                {
-                    velocity *= stickySpeed; // slows down 
-                }
+                velocity *= stickySpeed; // slows down 
             }
 
             if (onIce)
@@ -309,11 +280,10 @@ public class BallMovement : MonoBehaviour
     public void StartIce()
     {
         onIce = true;
-        endingIce = -1;
     }
     public void StopIce()
     {
-        endingIce = .3f;
+        onIce = false;
     }
 
     public void StartSticky()
@@ -325,11 +295,11 @@ public class BallMovement : MonoBehaviour
         }
 
         onSticky = true;
-        endingSticky = 0.0f;
     }
     public void StopSticky()
     {
-        endingSticky = .5f;
+        GetComponent<Rigidbody2D>().mass = 1;
+        onSticky = false;
     }
 
     private void OnDestroy()

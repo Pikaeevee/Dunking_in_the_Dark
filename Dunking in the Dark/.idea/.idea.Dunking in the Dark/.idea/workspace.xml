@@ -45,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/Plugins/EnhancedTouch/TouchSimulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/Plugins/XR/TrackedPoseDriver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@2.0.1/Scripts/Editor/TMP_SettingsEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AudioInBox.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEditor.TestRunner/TestRunnerWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shaders/2D Glow Stolen.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/Plugins/EnhancedTouch/Touch.cs" root0="SKIP_HIGHLIGHTING" />
@@ -90,10 +91,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectScoring.cs" />
         <option value="$PROJECT_DIR$/Assets/PUHeavyScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/AudioInBox.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IcyPlatformScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -186,6 +188,8 @@
       <workItem from="1581908241540" duration="798000" />
       <workItem from="1581909833661" duration="1278000" />
       <workItem from="1581911454216" duration="1351000" />
+      <workItem from="1582060688805" duration="1645000" />
+      <workItem from="1582062423854" duration="145000" />
     </task>
     <servers />
   </component>

@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 541882944645035557}
   - component: {fileID: 541882944645035556}
   - component: {fileID: 541882944645035611}
-  - component: {fileID: 138699244315486504}
-  - component: {fileID: -4469573690361929876}
   m_Layer: 10
   m_Name: Icy Floor Black and White (1)
   m_TagString: IcyPlatform
@@ -30,7 +28,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.121, y: 13.398, z: -0.13641977}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
+  m_Children:
+  - {fileID: 891844890848058771}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -93,7 +92,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 541882944645035610}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cae07d0fff39c374ea8f5c5703cd5e37, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -110,33 +109,91 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 50, y: 10.009766}
   m_EdgeRadius: 0
---- !u!114 &138699244315486504
+--- !u!1 &4714754714171330065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 891844890848058771}
+  - component: {fileID: 9179830085390757568}
+  - component: {fileID: 8588054308478127507}
+  - component: {fileID: 3445949426439240385}
+  - component: {fileID: 3488961804270660176}
+  m_Layer: 0
+  m_Name: NoisePlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &891844890848058771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714754714171330065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 541882944645035557}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &9179830085390757568
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714754714171330065}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.57}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.08, y: 0.92}
+  m_EdgeRadius: 0.24
+--- !u!114 &8588054308478127507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541882944645035610}
+  m_GameObject: {fileID: 4714754714171330065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfd30a741e8df045822ef79e22b6abd, type: 3}
+  m_Script: {fileID: 11500000, guid: 675a7c11cd7c6ac4f9b66d56b0130a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSFX: {fileID: -4469573690361929876}
-  timeTillNoiseStop: 0.4
---- !u!82 &-4469573690361929876
+--- !u!82 &3445949426439240385
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541882944645035610}
+  m_GameObject: {fileID: 4714754714171330065}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e09bb2f26e6504fa39f0f646e503a843, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.246
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -210,7 +267,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.1
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -220,3 +277,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3488961804270660176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4714754714171330065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfd30a741e8df045822ef79e22b6abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
