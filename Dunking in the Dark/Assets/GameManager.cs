@@ -267,8 +267,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                int nextMap = getNextMap()
-                SceneManager.LoadScene(nextMap);
+                int nextMap = getNextMap();
+                SceneManager.LoadScene(nextMap); 
             }
             
         }
@@ -285,7 +285,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                int nextMap = getNextMap()
+                int nextMap = getNextMap();
                 SceneManager.LoadScene(nextMap);
             }
         }
@@ -293,7 +293,7 @@ public class GameManager : MonoBehaviour
         {
             print("Tie! No points!");
             int nextMap = getNextMap();
-            SceneManager.LoadScene(getNextMap);
+            SceneManager.LoadScene(nextMap);
         }
         
         
