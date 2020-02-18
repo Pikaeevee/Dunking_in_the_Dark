@@ -11,6 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/WarpPlatformScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/Utils/Utils.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/InputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.4/InputSystem/Actions/InputActionAsset.cs" root0="SKIP_HIGHLIGHTING" />
@@ -93,9 +94,10 @@
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/AudioInBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IcyPlatformScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/WarpPlatformScript.cs" />
       </list>
     </option>
   </component>
@@ -191,6 +193,7 @@
       <workItem from="1582060688805" duration="1645000" />
       <workItem from="1582062423854" duration="145000" />
       <workItem from="1582062789049" duration="73000" />
+      <workItem from="1582063496411" duration="2067000" />
     </task>
     <servers />
   </component>
@@ -217,6 +220,10 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="345" y="141" key="#Notifications/0.0.1504.963@0.0.1504.963" timestamp="1581193955814" />
+    <state x="208" y="138" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582063584775">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="208" y="138" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1504.963@0.0.1504.963" timestamp="1582063584775" />
     <state x="512" y="286" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581192290172">
       <screen x="0" y="0" width="1504" height="963" />
     </state>

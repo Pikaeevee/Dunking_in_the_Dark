@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class BallMovement : MonoBehaviour
 {
@@ -45,7 +46,11 @@ public class BallMovement : MonoBehaviour
     private Color tailCol;
     public float collisionSpeed;
     public float bounceReturn = 0;
-
+    
+    //Event for collision
+    public UnityEvent knockedOut;
+    public UnityEvent controlReturned;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -87,8 +92,16 @@ public class BallMovement : MonoBehaviour
         
         
         velocity = Input.GetAxis(horizAxis) * speed * speedMultiplier;
-        hasControl -= Time.deltaTime;
-        if (hasControl < 0)
+        if (hasControl > 0)
+        {
+            hasControl -= Time.deltaTime;
+            if (hasControl <= 0)
+            {
+                controlReturned.Invoke();
+            }
+        }
+
+        if (hasControl <= 0)
         {
             // check for different platforms 
             if (onSticky)
@@ -147,7 +160,6 @@ public class BallMovement : MonoBehaviour
             isSpikey = true;
             howCloseToJump *= 2;
             GetComponent<SpriteRenderer>().sprite = spikySprite;
-            transform.localScale = transform.localScale * 1.2f;
         }
 
         spikeyTime += duration;
@@ -160,7 +172,6 @@ public class BallMovement : MonoBehaviour
         isSpikey = false;
         howCloseToJump /= 2;
         GetComponent<SpriteRenderer>().sprite = normalSprite;
-        transform.localScale = transform.localScale / 1.2f;
     }
 
     private void Jump()
@@ -242,6 +253,7 @@ public class BallMovement : MonoBehaviour
         rb.velocity = rb.velocity * 1.2f;
         hasControl = time;
         StartCoroutine(Blink(time, .25f));
+        knockedOut.Invoke();
     }
 
     IEnumerator Blink(float duration, float swapAmount)
