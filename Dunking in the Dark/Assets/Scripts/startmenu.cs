@@ -16,6 +16,7 @@ public class startmenu : MonoBehaviour
     }
     public void ReturntoMenu()
     {
+        Debug.Log("back to menu");
         SceneManager.LoadScene(0);
     }
 

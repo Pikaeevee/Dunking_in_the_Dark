@@ -12,9 +12,9 @@ public class BallMovement : MonoBehaviour
     public float stickySpeed = 0.5f; // multiplier to normal velocity
 
     public bool onIce = false;
-    private bool endingIce = false;
+    private float endingIce = -1.0f;
     public bool onSticky = false;
-    private bool endingSticky = false;
+    private float endingSticky = -1.0f;
     [SerializeField] private float jumpWait = .05f;
     private float jumpcooldown = 0;
 
@@ -44,6 +44,8 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private Sprite spikySprite;
     private Color playerCol;
     private Color tailCol;
+    public float collisionSpeed;
+    public float bounceReturn = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +61,7 @@ public class BallMovement : MonoBehaviour
         normalSprite = GetComponent<SpriteRenderer>().sprite;
         playerCol = GetComponent<SpriteRenderer>().color;
         tailCol = GetComponent<TrailRenderer>().startColor;
+        collisionSpeed = 0;
     }
 
     // Update is called once per frame
@@ -82,6 +85,28 @@ public class BallMovement : MonoBehaviour
             velocity = 0;
         }
         */
+        
+        //Control Ice and stickiness timers
+        if (endingIce > 0)
+        {
+            endingIce -= Time.deltaTime;
+            if (endingIce < 0)
+            {
+                print("Turning ice off");
+                onIce = false;
+            }
+        }
+        
+        if (endingSticky > 0)
+        {
+            endingSticky -= Time.deltaTime;
+            if (endingSticky < 0)
+            {
+                print("Turning sticky off");
+                onSticky = false;
+                GetComponent<Rigidbody2D>().mass = 1;
+            }
+        }
 
         velocity = Input.GetAxis(horizAxis) * speed * speedMultiplier;
         hasControl -= Time.deltaTime;
@@ -90,12 +115,19 @@ public class BallMovement : MonoBehaviour
             // check for different platforms 
             if (onSticky)
             {
-                velocity *= stickySpeed; // slows down 
+                if (endingSticky > 0)
+                {
+                    velocity = Mathf.Lerp(velocity, velocity * stickySpeed, endingSticky * 2);
+                }
+                else
+                {
+                    velocity *= stickySpeed; // slows down 
+                }
             }
 
             if (onIce)
             {
-                rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(velocity, rb.velocity.y), 0.01f);
+                rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(velocity, rb.velocity.y), 0.07f);
                 //rb.AddForce(new Vector2(velocity, currPos.y));
             }
             else
@@ -128,6 +160,12 @@ public class BallMovement : MonoBehaviour
                 undoSpikey();
             }
         }
+    }
+    
+    //Needed for collision detection
+    private void FixedUpdate()
+    {
+        collisionSpeed = rb.velocity.magnitude;
     }
 
     //TODO: Make these do something more interesing than just scale
@@ -166,7 +204,7 @@ public class BallMovement : MonoBehaviour
             //print("We correctly collided!");
             //We hit something!
             // assuming ball is rigidbody
-            rb.velocity = new Vector2(rb.velocity.x, Math.Abs(rb.velocity.y));
+            rb.velocity = new Vector2(rb.velocity.x, Math.Abs(rb.velocity.y) * bounceReturn);
             rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             jumpcooldown = jumpWait;
         }
@@ -208,8 +246,8 @@ public class BallMovement : MonoBehaviour
             else
             {
                 print("Knocked someone!");
-                Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
-                if (rb.velocity.magnitude >= otherRb.velocity.magnitude)
+                BallMovement control = other.gameObject.GetComponent<BallMovement>();
+                if (collisionSpeed > control.collisionSpeed)
                 {
                     //Knock them!
                     print("Knocked them!");
@@ -220,6 +258,7 @@ public class BallMovement : MonoBehaviour
                     //Knock us!
                     print("Knocked us!");
                     loseControl(1.5f);
+                    
                 }
             }
         }
@@ -270,24 +309,13 @@ public class BallMovement : MonoBehaviour
     public void StartIce()
     {
         onIce = true;
-        endingIce = false;
-        StopCoroutine("DeIce");
-        print("Ice on!");
+        endingIce = -1;
     }
     public void StopIce()
     {
-        endingIce = true;
-        StartCoroutine(DeIce());
+        endingIce = .3f;
     }
 
-    IEnumerator DeIce()
-    {
-        print("Turning ice oof");
-        yield return new WaitForSeconds(1f);
-        print("Ice turned off");
-        onIce = !endingIce;
-    }
-    
     public void StartSticky()
     {
         if (!onSticky)
@@ -297,23 +325,16 @@ public class BallMovement : MonoBehaviour
         }
 
         onSticky = true;
-        endingSticky = false;
-        StopCoroutine("DeSticky");
-        print("Ice on!");
+        endingSticky = 0.0f;
     }
     public void StopSticky()
     {
-        endingSticky = true;
-        StartCoroutine(DeSticky());
+        endingSticky = .5f;
     }
 
-    IEnumerator DeSticky()
+    private void OnDestroy()
     {
-        yield return new WaitForSeconds(0.5f);
-        onSticky = !endingSticky;
-        if (!onSticky)
-        {
-           GetComponent<Rigidbody2D>().mass = 1;
-        }
+        print("Whomst'dve the fuck thought destroying me was a good idea");
+        
     }
 }

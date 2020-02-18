@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 5528262515591033522}
   - component: {fileID: 5528262515591033525}
   - component: {fileID: 5528262515591033524}
-  - component: {fileID: 5528262515591033526}
-  - component: {fileID: 5528262515591033523}
-  - component: {fileID: 5528262515591033520}
+  - component: {fileID: 4827638686812834214}
+  - component: {fileID: 487969982998212105}
   - component: {fileID: 4526261966099162349}
   m_Layer: 9
   m_Name: Player 1
@@ -30,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5528262515591033513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.275, y: -0.544, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,13 +100,13 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 6
   m_Material: {fileID: 6200000, guid: 95df3fed910bb31419e0b02580340592, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &5528262515591033526
+--- !u!114 &4827638686812834214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,50 +120,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   jumpSpeed: 30
-  howCloseToJump: {x: 0, y: -0.5}
+  howCloseToJump: {x: 0, y: -0.75}
   stickySpeed: 0.3
   onIce: 0
   onSticky: 0
   jumpWait: 0.05
-  jumpKey: 273
-  leftKey: 276
-  rightKey: 275
+  jumpKey: 119
+  leftKey: 97
+  rightKey: 100
   jumpButton: Jump_P1
   horizAxis: Horizontal_P1
   speedMultiplier: 1
   spikySprite: {fileID: 21300000, guid: 272a6abbedfc3c94290ed34df83fd0f4, type: 3}
---- !u!114 &5528262515591033523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5528262515591033513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 25de1b1f9bb2c0941a6cb80120b92150,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: GameController
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!96 &5528262515591033520
+  collisionSpeed: 0
+  bounceReturn: 0.2
+--- !u!96 &487969982998212105
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0

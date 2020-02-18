@@ -73,7 +73,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OneRad: 6.361633
+    - _OneRad: 3
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -83,7 +83,7 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _TwoRad: 6.361633
+    - _TwoRad: 3
     - _UVSec: 0
     - _UseUIAlphaClip: 0
     - _WindQuality: 0
@@ -95,6 +95,6 @@ Material:
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _Pos: {r: 0, g: 0, b: 0, a: 0}
     - _Pos1: {r: 0, g: 0, b: 0, a: 0}
-    - _PosGoal: {r: -33.1, g: 26.7, b: 0, a: 0}
-    - _PosOne: {r: -31.435654, g: -3.4520013, b: 0, a: 0}
-    - _PosTwo: {r: 13.53, g: 32.612278, b: 0, a: 0}
+    - _PosGoal: {r: -9.96, g: 33.3, b: 0, a: 0}
+    - _PosOne: {r: 13.774835, g: 8.569339, b: 0, a: 0}
+    - _PosTwo: {r: 13.878439, g: -9.570997, b: 0, a: 0}
