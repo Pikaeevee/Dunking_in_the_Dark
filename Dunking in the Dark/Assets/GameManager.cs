@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
     private void SetTimer()
     {
         //Stub for setting the time!
-        scoreText.SetText("TIME LEFT:\n" + (int) gameTime);
+        scoreText.SetText("TIME LEFT\n" + (int) gameTime);
     }
 
     IEnumerator interpolateLightsOut(float timer)

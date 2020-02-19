@@ -1040,10 +1040,10 @@ RectTransform:
   m_Father: {fileID: 76734680}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -50}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -466.1, y: -84.5}
+  m_SizeDelta: {x: 311.3, y: 143.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &286661567
 CanvasRenderer:
@@ -1073,7 +1073,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'PLAYER 1
 
-    5 '
+    0 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 899a2333fb43c4773a37b4e036a0c806, type: 2}
   m_sharedMaterial: {fileID: 2309001798668104045, guid: 899a2333fb43c4773a37b4e036a0c806,
@@ -1102,10 +1102,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 56.1
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2038,6 +2038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icy Floor Black and White (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3445949426439240385, guid: 5b580580892cc8f46a24677180e52fe4,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.085
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b580580892cc8f46a24677180e52fe4, type: 3}
 --- !u!1001 &582240036
@@ -2150,8 +2155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -8, y: -50}
-  m_SizeDelta: {x: 387.1, y: 100}
+  m_AnchoredPosition: {x: 0, y: -83}
+  m_SizeDelta: {x: 490.2, y: 146.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &600371759
 CanvasRenderer:
@@ -2179,7 +2184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TIME REMAINING:
+  m_text: 'TIME REMAINING
 
     50'
   m_isRightToLeft: 0
@@ -2210,10 +2215,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 51.15
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2251,14 +2256,14 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 600371760}
-    characterCount: 18
+    characterCount: 17
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
     linkCount: 0
     lineCount: 2
     pageCount: 1
-    materialCount: 2
+    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -3987,8 +3992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 9.399994, y: -9}
+  m_SizeDelta: {x: 18.8, y: -0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220351039
 MonoBehaviour:
@@ -5160,10 +5165,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 56.25
+  m_fontSizeBase: 55.75
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -5246,10 +5251,10 @@ RectTransform:
   m_Father: {fileID: 76734680}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -150, y: -50}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 469.3, y: -84.51199}
+  m_SizeDelta: {x: 332.1, y: 143.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1535487998
 PrefabInstance:
