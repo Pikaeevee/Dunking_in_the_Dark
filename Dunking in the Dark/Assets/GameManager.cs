@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     private MatchPlayers darknessMatcher;
 
     // Between round text 
-    [SerializedField] private TextMeshProGUI roundsText; 
+    [SerializeField] private TextMeshProUGUI roundsText; 
     
     //Our players and other objects
     private GameObject p1;
@@ -272,7 +272,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(RoundEnd(1, PlayerPrefs.GetFloat("p1Score"), PlayerPrefs.GetFloat("p2Score"));
+                StartCoroutine(RoundEnd(1, PlayerPrefs.GetFloat("p1Score"), PlayerPrefs.GetFloat("p2Score")));
             }
             
         }
@@ -416,8 +416,8 @@ public class GameManager : MonoBehaviour
     // display who won the round, move to next map 
     private IEnumerator RoundEnd(int winner, float p1score, float p2score)
     {
-        int p1s = int(p1score);
-        int p2s = int(p2score);
+        int p1s = (int)p1score;
+        int p2s = (int)p2score;
         // display the match winner, move to next round 
         if (winner == 1)
         {
@@ -430,7 +430,7 @@ public class GameManager : MonoBehaviour
         // tie 
         else
         {
-            roundsText.SetText("Round tied! \\n" + p1s + " - " + p2s)
+            roundsText.SetText("Round tied! \\n" + p1s + " - " + p2s);
         }
 
         // load next scene after delay 
