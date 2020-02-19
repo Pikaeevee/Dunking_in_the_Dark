@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class WarpPlatformScript : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class WarpPlatformScript : MonoBehaviour
 
     private ArrayList objectsToTeleport;
     private float timer;
+    private bool canTeleport;
+    private Color startColor;
+
+    [SerializeField] private float cooldown = 3;
+    [SerializeField] private float blinkTime = .5f;
+    [SerializeField] private Color blinkColor;
     
     // Start is called before the first frame update
     void Start()
@@ -21,13 +28,15 @@ public class WarpPlatformScript : MonoBehaviour
         timer = -1;
         objectsToTeleport = new ArrayList();
         Link();
+        startColor = transform.parent.GetComponent<SpriteRenderer>().color;
+        canTeleport = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         print("Timer is " + timer);
-        if (timer > 0)
+        if (timer > 0 && canTeleport)
         {
             print("Timer subtracted");
             timer -= Time.deltaTime;
@@ -39,6 +48,39 @@ public class WarpPlatformScript : MonoBehaviour
             }
         }
         
+    }
+
+    public void StartCooldown()
+    {
+        StartCoroutine(CoolingDown());
+    }
+
+    IEnumerator CoolingDown()
+    {
+        canTeleport = false;
+        bool flipped = false;
+        SpriteRenderer sprite = transform.parent.GetComponent<SpriteRenderer>();
+        float timer = 0;
+        yield return null;
+        while (timer < (cooldown - blinkTime))
+        {
+            if (flipped)
+            {
+                sprite.color = startColor;
+            }
+            else
+            {
+                sprite.color = blinkColor;
+            }
+
+            flipped = !flipped;
+            timer += blinkTime;
+            yield return new WaitForSeconds(blinkTime);
+        }
+        
+        yield return new WaitForSeconds(cooldown - timer);
+        sprite.color = startColor;
+        canTeleport = true;
     }
 
     private void Link()
@@ -68,6 +110,9 @@ public class WarpPlatformScript : MonoBehaviour
             Vector3 offset = g.transform.position - transform.parent.position;
             g.transform.position = otherPlatform.transform.parent.position + offset;
         }
+        StartCooldown();
+        otherPlatform.GetComponent<WarpPlatformScript>().StartCooldown();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

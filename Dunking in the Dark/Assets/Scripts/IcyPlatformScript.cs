@@ -26,7 +26,6 @@ public class IcyPlatformScript : MonoBehaviour
         if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
         {
             other.gameObject.GetComponent<BallMovement>().StartIce();
-            other.GetComponent<Rigidbody2D>().freezeRotation = true;
         }
     }
 
@@ -35,7 +34,6 @@ public class IcyPlatformScript : MonoBehaviour
         if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
         {
             other.gameObject.GetComponent<BallMovement>().StopIce();
-            other.GetComponent<Rigidbody2D>().freezeRotation = false;
         }
     }
 }
