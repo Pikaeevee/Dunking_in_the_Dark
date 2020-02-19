@@ -421,17 +421,18 @@ public class GameManager : MonoBehaviour
         // display the match winner, move to next round 
         if (winner == 1)
         {
-            roundsText.SetText("P1 wins the round! \\n" + p1s + " - " + p2s); 
+            roundsText.SetText("P1 wins the round! \n" + p1s + " - " + p2s); 
         }
         else if (winner == 2)
         {
-            roundsText.SetText("P2 wins the round! \\n" + p1s + " - " + p2s);
+            roundsText.SetText("P2 wins the round! \n" + p1s + " - " + p2s);
         }
         // tie 
         else
         {
-            roundsText.SetText("Round tied! \\n" + p1s + " - " + p2s);
+            roundsText.SetText("Round tied! \n" + p1s + " - " + p2s);
         }
+        roundsText.enabled = true; 
 
         // load next scene after delay 
         yield return new WaitForSeconds(1.5f);
