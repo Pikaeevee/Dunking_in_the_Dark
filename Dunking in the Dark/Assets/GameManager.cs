@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI p1Text;
     [SerializeField] private TextMeshProUGUI p2Text;
     private MatchPlayers darknessMatcher;
+
+    // Between round text 
+    [SerializedField] private TextMeshProGUI roundsText; 
     
     //Our players and other objects
     private GameObject p1;
@@ -70,6 +73,8 @@ public class GameManager : MonoBehaviour
         
         p1Text.SetText("PLAYER 1\n" + p1Score);
         p2Text.SetText("PLAYER 2\n" + p2Score);
+
+        roundsText.enabled = false; 
         
         //Throw the goal far away, so it look correct
         //goal.transform.position = new Vector3(30,30, goal.transform.position.z);
@@ -267,8 +272,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                int nextMap = getNextMap();
-                SceneManager.LoadScene(nextMap); 
+                StartCoroutine(RoundEnd(1, PlayerPrefs.GetFloat("p1Score"), PlayerPrefs.GetFloat("p2Score"));
             }
             
         }
@@ -281,19 +285,17 @@ public class GameManager : MonoBehaviour
             {
                 //End game, p1 wins!
                 PlayerPrefs.SetInt("winner", 2);
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene("Win Screen");
             }
             else
             {
-                int nextMap = getNextMap();
-                SceneManager.LoadScene(nextMap);
+                StartCoroutine(RoundEnd(2, PlayerPrefs.GetFloat("p1Score"), PlayerPrefs.GetFloat("p2Score"))); 
             }
         }
         else
         {
             print("Tie! No points!");
-            int nextMap = getNextMap();
-            SceneManager.LoadScene(nextMap);
+            StartCoroutine(RoundEnd(0, PlayerPrefs.GetFloat("p1Score"), PlayerPrefs.GetFloat("p2Score")));
         }
         
         
@@ -411,10 +413,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // TODO: DISPLAY ROUND 
-    private void RoundEndDisplay()
+    // display who won the round, move to next map 
+    private IEnumerator RoundEnd(int winner, float p1score, float p2score)
     {
+        int p1s = int(p1score);
+        int p2s = int(p2score);
         // display the match winner, move to next round 
-        // delay to go to next round 
+        if (winner == 1)
+        {
+            roundsText.SetText("P1 wins the round! \\n" + p1s + " - " + p2s); 
+        }
+        else if (winner == 2)
+        {
+            roundsText.SetText("P2 wins the round! \\n" + p1s + " - " + p2s);
+        }
+        // tie 
+        else
+        {
+            roundsText.SetText("Round tied! \\n" + p1s + " - " + p2s)
+        }
+
+        // load next scene after delay 
+        yield return new WaitForSeconds(1.5f);
+
+        int nextMap = getNextMap();
+        SceneManager.LoadScene(nextMap);
     }
 }
