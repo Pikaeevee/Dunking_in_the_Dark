@@ -109,7 +109,7 @@ public class BallMovement : MonoBehaviour
                 velocity *= stickySpeed; // slows down 
             }
 
-            if (onIce)
+            if (onIce && !isSpikey)
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(velocity, rb.velocity.y), 0.07f);
                 //rb.AddForce(new Vector2(velocity, currPos.y));
@@ -292,10 +292,15 @@ public class BallMovement : MonoBehaviour
     public void StartIce()
     {
         onIce = true;
+        if (!isSpikey)
+        {
+            GetComponent<Rigidbody2D>().freezeRotation = true;
+        }
     }
     public void StopIce()
     {
         onIce = false;
+        GetComponent<Rigidbody2D>().freezeRotation = false;
     }
 
     public void StartSticky()
