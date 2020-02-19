@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2649287806593569063}
   - component: {fileID: 5633256569891218879}
   - component: {fileID: 3089866081218591566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CollisionDetector
   m_TagString: WarpPlatform
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.57}
+  m_Offset: {x: 0, y: 4.35}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -60,7 +60,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.08, y: 0.92}
+  m_Size: {x: 43.67, y: 6.04}
   m_EdgeRadius: 0.24
 --- !u!114 &1825704383887362674
 MonoBehaviour:
@@ -183,6 +183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToTeleport: 1
+  cooldown: 3
+  blinkTime: 0.5
+  blinkColor: {r: 0.9529412, g: 1, b: 0.02745098, a: 1}
 --- !u!198 &5633256569891218879
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -199,7 +202,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -256,7 +259,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -266,7 +269,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -319,7 +322,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -757,7 +760,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -810,9 +813,9 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 10
+    type: 8
     angle: 10
-    length: 5
+    length: 4.86
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
@@ -895,9 +898,9 @@ ParticleSystem:
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 0
     sphericalDirectionAmount: 0
-    randomPositionAmount: 1
+    randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.72
       mode: 0
       spread: 0
       speed:
@@ -1016,7 +1019,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4916,7 +4919,7 @@ GameObject:
   - component: {fileID: 2218038697903525908}
   - component: {fileID: 5983791945194920843}
   - component: {fileID: 5317313655972839684}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WarpFloor
   m_TagString: WarpPlatform
   m_Icon: {fileID: 0}
