@@ -6,6 +6,7 @@
     <e p="C:\Users\Woodm\Documents\GitHub\Dunking_in_the_Dark\Dunking in the Dark" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="AudioInBox.cs" t="Include" />
         <e p="Fonts" t="Include">
           <e p="1001fonts-automania-eula.txt" t="Include" />
           <e p="1001fonts-drive-thru-eula.txt" t="Include" />
@@ -59,6 +60,7 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="WarpPlatformScript.cs" t="Include" />
       </e>
       <e p="Dunking in the Dark.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />

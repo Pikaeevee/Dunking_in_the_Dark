@@ -25,7 +25,7 @@ public class MatchPlayers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mat = GetComponent<MeshRenderer>().sharedMaterial;
+        mat = GetComponent<MeshRenderer>().material;
         playerOne = GameObject.FindGameObjectWithTag("Player1");
         playerTwo = GameObject.FindGameObjectWithTag("Player2");
         goal = GameObject.FindGameObjectWithTag("Goal");

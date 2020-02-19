@@ -263,11 +263,12 @@ public class GameManager : MonoBehaviour
             {
                 //End game, p1 wins!
                 PlayerPrefs.SetInt("winner", 1);
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene("Win Screen");
             }
             else
             {
-                SceneManager.LoadScene(Random.Range(1, 3));
+                int nextMap = getNextMap();
+                SceneManager.LoadScene(nextMap); 
             }
             
         }
@@ -284,13 +285,15 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(Random.Range(1, 3));
+                int nextMap = getNextMap();
+                SceneManager.LoadScene(nextMap);
             }
         }
         else
         {
             print("Tie! No points!");
-            SceneManager.LoadScene(Random.Range(1, 3));
+            int nextMap = getNextMap();
+            SceneManager.LoadScene(nextMap);
         }
         
         
@@ -327,6 +330,18 @@ public class GameManager : MonoBehaviour
         }*/
         
     }
+
+    private int getNextMap()
+    {
+        int currMap = SceneManager.GetActiveScene().buildIndex;
+        int nextMap = Random.Range(1, 3);
+        while (nextMap == currMap)
+        {
+            nextMap = Random.Range(1, 3);
+        }
+        return nextMap;
+    }
+
     
     
 
@@ -394,5 +409,12 @@ public class GameManager : MonoBehaviour
         {
             Gizmos.DrawWireSphere(new Vector3(v.x, v.y,0), .2f);
         }
+    }
+
+    // TODO: DISPLAY ROUND 
+    private void RoundEndDisplay()
+    {
+        // display the match winner, move to next round 
+        // delay to go to next round 
     }
 }
