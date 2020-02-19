@@ -94,9 +94,9 @@
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/AudioInBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/IcyPlatformScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BallMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/IcyPlatformScript.cs" />
         <option value="$PROJECT_DIR$/Assets/WarpPlatformScript.cs" />
       </list>
     </option>
@@ -194,6 +194,8 @@
       <workItem from="1582062423854" duration="145000" />
       <workItem from="1582062789049" duration="73000" />
       <workItem from="1582063496411" duration="2067000" />
+      <workItem from="1582129301559" duration="358000" />
+      <workItem from="1582129689645" duration="1498000" />
     </task>
     <servers />
   </component>
