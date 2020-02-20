@@ -38,10 +38,10 @@ public class WarpPlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Timer is " + timer);
+        //print("Timer is " + timer);
         if (timer > 0 && canTeleport)
         {
-            print("Timer subtracted");
+            //print("Timer subtracted");
             timer -= Time.deltaTime;
             if (timer <= 0)
             {

@@ -49,7 +49,7 @@ public class PlatformMovement : MonoBehaviour
         yield return null;
         while (counter < time)
         {
-            print("Taking one frame step! Time is " + counter);
+            //print("Taking one frame step! Time is " + counter);
             counter += Time.deltaTime;
             if (counter > time)
             {

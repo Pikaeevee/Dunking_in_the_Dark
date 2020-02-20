@@ -128,7 +128,7 @@ public class BallMovement : MonoBehaviour
         {
             if (jumpcooldown <= 0 && Mathf.Abs(rb.velocity.y) < speed * 1.5 * speedMultiplier)
             {
-                print("Jumping!");
+                //print("Jumping!");
                 Jump();
             }
         }
