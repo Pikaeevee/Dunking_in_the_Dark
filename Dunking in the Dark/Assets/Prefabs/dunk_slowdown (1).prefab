@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7833035824476573203}
   m_Layer: 0
   m_Name: dunk_slowdown (1)
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

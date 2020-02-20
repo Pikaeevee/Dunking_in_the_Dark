@@ -349,10 +349,10 @@ public class GameManager : MonoBehaviour
     private int getNextMap()
     {
         int currMap = SceneManager.GetActiveScene().buildIndex;
-        int nextMap = Random.Range(1, 3);
+        int nextMap = Random.Range(1, 4);
         while (nextMap == currMap)
         {
-            nextMap = Random.Range(1, 3);
+            nextMap = Random.Range(1, 4);
         }
         return nextMap;
     }

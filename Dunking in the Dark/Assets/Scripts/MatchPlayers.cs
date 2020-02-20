@@ -11,6 +11,8 @@ public class MatchPlayers : MonoBehaviour
     public float p1Distance;
     public float p2Distance;
     public float goalDistance;
+    private float[] array;
+    public float powerupDistance = 1;
 
     [HideInInspector] public float totalLerp = 1;
     
@@ -21,6 +23,9 @@ public class MatchPlayers : MonoBehaviour
     private static readonly int TwoRad = Shader.PropertyToID("_TwoRad");
     private static readonly int PosGoal = Shader.PropertyToID("_PosGoal");
     private static readonly int GoalRad = Shader.PropertyToID("_GoalRad");
+    private static readonly int Array = Shader.PropertyToID("_Array");
+    private static readonly int ArrayLength = Shader.PropertyToID("_ArrayLength");
+    private static readonly int PowRad = Shader.PropertyToID("_PowRad");
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +34,15 @@ public class MatchPlayers : MonoBehaviour
         playerOne = GameObject.FindGameObjectWithTag("Player1");
         playerTwo = GameObject.FindGameObjectWithTag("Player2");
         goal = GameObject.FindGameObjectWithTag("Goal");
+        
+
+        GameObject[] powerups = GameObject.FindGameObjectsWithTag("Powerup");
+        array = new float[powerups.Length * 2];
+        for (int i = 0; i < powerups.Length; i++)
+        {
+            array[2 * i] = powerups[i].transform.position.x;
+            array[(2 * i) + 1] = powerups[i].transform.position.y;
+        }
     }
 
     // Update is called once per frame
@@ -43,5 +57,9 @@ public class MatchPlayers : MonoBehaviour
         mat.SetFloat(TwoRad, p2Distance * totalLerp);
         mat.SetVector(PosGoal, posGoal);
         mat.SetFloat(GoalRad, goalDistance * totalLerp);
+        
+        mat.SetFloat(PowRad, powerupDistance);
+        mat.SetInt(ArrayLength, array.Length);
+        mat.SetFloatArray(Array, array);
     }
 }

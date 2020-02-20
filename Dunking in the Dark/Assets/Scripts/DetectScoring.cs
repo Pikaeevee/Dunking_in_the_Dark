@@ -77,11 +77,11 @@ public class DetectScoring : MonoBehaviour
         box.enabled = false;
         wallbox.enabled = false;
         // disable scoring from trigger call 
-        GetComponent<BoxCollider2D>().isTrigger = false;
-        yield return new WaitForSeconds(0.2f);
+        //GetComponent<BoxCollider2D>().isTrigger = false;
+        yield return new WaitForSeconds(2.0f);
         wallbox.enabled = true;
         yield return new WaitForSeconds(noScoreDuration);
         box.enabled = true;
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        //GetComponent<BoxCollider2D>().isTrigger = true;
     }
 }
