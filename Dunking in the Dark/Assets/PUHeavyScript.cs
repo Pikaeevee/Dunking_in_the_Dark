@@ -35,7 +35,10 @@ public class PUHeavyScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
         {
-            powerupSFX.PlayOneShot(powerupNoise);
+            if (powerupNoise.name == "gravity1") { 
+                powerupSFX.PlayOneShot(powerupNoise); 
+            }
+            else { powerupSFX.PlayOneShot(powerupNoise, 0.6f); }
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<Renderer>().enabled = false;
             if (!enemyDebuff)

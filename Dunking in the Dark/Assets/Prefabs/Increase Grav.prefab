@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityMultiplier: 1.3
   duration: 8
+  volume: 0.3
   enemyDebuff: 1
   respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 94123e52a36e948eea353d1fead690eb, type: 3}

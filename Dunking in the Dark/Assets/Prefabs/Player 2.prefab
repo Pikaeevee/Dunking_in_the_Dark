@@ -122,6 +122,7 @@ MonoBehaviour:
   jumpSpeed: 30
   howCloseToJump: {x: 0, y: -0.75}
   stickySpeed: 0.3
+  bump: {fileID: 0}
   onIce: 0
   onSticky: 0
   jumpWait: 0.05
@@ -134,6 +135,12 @@ MonoBehaviour:
   spikySprite: {fileID: 21300000, guid: 272a6abbedfc3c94290ed34df83fd0f4, type: 3}
   collisionSpeed: 0
   bounceReturn: 0
+  knockedOut:
+    m_PersistentCalls:
+      m_Calls: []
+  controlReturned:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!96 &8797354047815553261
 TrailRenderer:
   serializedVersion: 2

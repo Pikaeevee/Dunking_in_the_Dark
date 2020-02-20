@@ -2048,7 +2048,7 @@ PrefabInstance:
     - target: {fileID: 3445949426439240385, guid: 5b580580892cc8f46a24677180e52fe4,
         type: 3}
       propertyPath: m_Volume
-      value: 0.085
+      value: 0.336
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b580580892cc8f46a24677180e52fe4, type: 3}
@@ -2516,6 +2516,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4827638686812834214, guid: 13134688209f1b9499287aa8f0453be5,
+        type: 3}
+      propertyPath: bump
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5528262515591033513, guid: 13134688209f1b9499287aa8f0453be5,
         type: 3}
       propertyPath: m_Name
@@ -2761,6 +2766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 1.5
   duration: 8
+  vol: 1
   enemyDebuff: 0
   respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
@@ -5285,6 +5291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 1.5
   duration: 8
+  vol: 1
   enemyDebuff: 0
   respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}

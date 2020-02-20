@@ -115,4 +115,4 @@ MonoBehaviour:
   duration: 8
   enemyDebuff: 1
   respawnTime: 10
-  powerupNoise: {fileID: 8300000, guid: bdebb13d6f0664c08bd3e6103c50f945, type: 3}
+  powerupNoise: {fileID: 8300000, guid: d0e4a6b5998274549824b2088f0b219f, type: 3}
