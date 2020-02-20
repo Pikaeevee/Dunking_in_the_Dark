@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         countdown.Stop();
 
         // rounds disabled for now
-        //roundsText.enabled = false; 
+        roundsText.enabled = false; 
         
         //Throw the goal far away, so it look correct
         //goal.transform.position = new Vector3(30,30, goal.transform.position.z);
