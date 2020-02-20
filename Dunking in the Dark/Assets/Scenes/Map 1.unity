@@ -4613,7 +4613,7 @@ PrefabInstance:
     - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
         type: 3}
       propertyPath: goalPoints.Array.data[0].x
-      value: 12.4
+      value: 11.19
       objectReference: {fileID: 0}
     - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
         type: 3}
@@ -4628,7 +4628,7 @@ PrefabInstance:
     - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
         type: 3}
       propertyPath: goalPoints.Array.data[1].x
-      value: -33.1
+      value: -31.9
       objectReference: {fileID: 0}
     - target: {fileID: 4882907442861897365, guid: 6be1454fd0639fa49870cbd6597cda32,
         type: 3}
