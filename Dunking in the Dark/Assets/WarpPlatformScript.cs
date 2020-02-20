@@ -17,6 +17,8 @@ public class WarpPlatformScript : MonoBehaviour
     [SerializeField] private float cooldown = 3;
     [SerializeField] private float blinkTime = .5f;
     [SerializeField] private Color blinkColor;
+
+    private ParticleSystem particles;
     
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class WarpPlatformScript : MonoBehaviour
         Link();
         startColor = transform.parent.GetComponent<SpriteRenderer>().color;
         canTeleport = true;
+        particles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class WarpPlatformScript : MonoBehaviour
 
     IEnumerator CoolingDown()
     {
+        particles.Stop();
         canTeleport = false;
         bool flipped = false;
         SpriteRenderer sprite = transform.parent.GetComponent<SpriteRenderer>();
@@ -81,6 +85,10 @@ public class WarpPlatformScript : MonoBehaviour
         yield return new WaitForSeconds(cooldown - timer);
         sprite.color = startColor;
         canTeleport = true;
+        if (objectsToTeleport.Count != 0)
+        {
+            particles.Play();
+        }
     }
 
     private void Link()
@@ -124,6 +132,10 @@ public class WarpPlatformScript : MonoBehaviour
             {
                 print("Starting timer");
                 timer = timeToTeleport;
+                if (canTeleport)
+                {
+                    particles.Play();
+                }
             }
             print("Player registered");
             objectsToTeleport.Add(other.gameObject);
@@ -140,6 +152,7 @@ public class WarpPlatformScript : MonoBehaviour
             {
                 print("No players left, timer deregistered");
                 timer = -1;
+                particles.Stop();
             }
         }
     }
