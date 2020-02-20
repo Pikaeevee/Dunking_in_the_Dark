@@ -12,6 +12,8 @@ Shader "Unlit/Darkness"
 		_TwoRad("Character 2 Radius", Float) = 5
 		_PosGoal("Goal Position", Float) = (0,0,0,0)
 		_GoalRad("Goal Show Radius", Float) = 0
+		
+		_PowRad("Powerup Show Radius", Float) = 0
 	}
 		SubShader
 	{
@@ -36,6 +38,10 @@ Shader "Unlit/Darkness"
 
 			uniform float4 _PosGoal;
 			uniform float _GoalRad;
+			uniform float _PowRad;
+			
+			int _ArrayLength = 1;
+			float _Array[20];
 
 				struct vertexInput {
 				float4 vertex : POSITION;
@@ -70,7 +76,21 @@ Shader "Unlit/Darkness"
 					float hasOne = step(_OneRad, distOne);
 					float hasTwo = step(_TwoRad, distTwo);
 					float hasThree = step(_GoalRad, distThree);
-					float canHide = hasOne * hasTwo * hasThree;
+					
+					float hasFour = 1;
+					for (int i = 0; i < _ArrayLength; i = i + 2)
+					{
+					    float one = _Array[i];
+					    float two = _Array[i+1];
+					    float2 pos = float2(one, two);
+					    
+					    float dist = distance(input.position_in_world_space.rg, pos);
+					    
+					    hasFour = hasFour * step(_PowRad, dist);
+					}
+					
+					float canHide = hasOne * hasTwo * hasThree * hasFour;
+					
 					float sub = 1 - canHide;
 					// computes the distance between the fragment position 
 					// and the origin (the 4th coordinate should always be 

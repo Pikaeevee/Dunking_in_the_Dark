@@ -60,6 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _ArrayLength: 0
     - _BumpScale: 1
     - _ColorMask: 15
     - _Cull: 2
@@ -97,4 +98,4 @@ Material:
     - _Pos1: {r: 0, g: 0, b: 0, a: 0}
     - _PosGoal: {r: -33.1, g: 26.7, b: 0, a: 0}
     - _PosOne: {r: -32.62521, g: 8.41453, b: 0, a: 0}
-    - _PosTwo: {r: -34.55768, g: 21.128075, b: 0, a: 0}
+    - _PosTwo: {r: -11.9, g: 12.4, b: 0, a: 0}
