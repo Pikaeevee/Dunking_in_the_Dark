@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         p1Text.SetText("PLAYER 1\n" + p1Score);
         p2Text.SetText("PLAYER 2\n" + p2Score);
 
+
         countdown = GetComponent<AudioSource>();
         countdown.Stop();
 

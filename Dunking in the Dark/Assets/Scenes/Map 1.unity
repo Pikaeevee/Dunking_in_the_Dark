@@ -1007,6 +1007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: dunk_slowdown (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8820225504768104449, guid: 6d6347cb6f570a24fac558908b30c929,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d6347cb6f570a24fac558908b30c929, type: 3}
 --- !u!1 &286661565
