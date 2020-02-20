@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     private GameObject p1;
     private GameObject p2;
     private GameObject goal;
+
+    //countdown sound
+    private AudioSource countdown;
     
     // Start is called before the first frame update
     void Start()
@@ -74,7 +77,11 @@ public class GameManager : MonoBehaviour
         p1Text.SetText("PLAYER 1\n" + p1Score);
         p2Text.SetText("PLAYER 2\n" + p2Score);
 
-        roundsText.enabled = false; 
+        countdown = GetComponent<AudioSource>();
+        countdown.Stop();
+
+        // rounds disabled for now
+        //roundsText.enabled = false; 
         
         //Throw the goal far away, so it look correct
         //goal.transform.position = new Vector3(30,30, goal.transform.position.z);
@@ -130,7 +137,12 @@ public class GameManager : MonoBehaviour
     private void SetTimer()
     {
         //Stub for setting the time!
-        scoreText.SetText("TIME LEFT\n" + (int) gameTime);
+        scoreText.SetText(gameTime.ToString("#"));
+        if (10f <= gameTime && gameTime < 10.1f)
+        {
+            countdown.Play();
+
+        }
     }
 
     IEnumerator interpolateLightsOut(float timer)
