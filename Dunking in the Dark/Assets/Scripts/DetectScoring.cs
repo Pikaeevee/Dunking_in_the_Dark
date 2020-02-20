@@ -8,7 +8,7 @@ public class DetectScoring : MonoBehaviour
     //This is supplied by the main camera
     private AudioSource source;
     [SerializeField] private AudioClip scoringNoise;
-    [SerializeField] private float noScoreDuration = 0.1f;
+    [SerializeField] private float noScoreDuration = 1.0f;
 
     [SerializeField] private Vector2 directionBallEnters;
 
@@ -77,10 +77,11 @@ public class DetectScoring : MonoBehaviour
         box.enabled = false;
         wallbox.enabled = false;
         // disable scoring from trigger call 
-        GetComponent<BoxCollider2D>().isTrigger = false; 
+        GetComponent<BoxCollider2D>().isTrigger = false;
+        yield return new WaitForSeconds(0.2f);
+        wallbox.enabled = true;
         yield return new WaitForSeconds(noScoreDuration);
         box.enabled = true;
-        wallbox.enabled = true;
         GetComponent<BoxCollider2D>().isTrigger = true;
     }
 }
