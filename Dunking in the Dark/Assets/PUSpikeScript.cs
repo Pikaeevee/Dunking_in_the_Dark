@@ -86,7 +86,7 @@ public class PUSpikeScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
         {
-            powerupSFX.PlayOneShot(spikeNoise, 0.6f);
+            powerupSFX.PlayOneShot(spikeNoise, 0.4f);
             //Hide this objects
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<Renderer>().enabled = false;

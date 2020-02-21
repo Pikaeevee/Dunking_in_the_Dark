@@ -95,7 +95,7 @@ public class PUSpeedScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
         {
-            if (powerupNoise.name == "slowdown") { powerupSFX.PlayOneShot(powerupNoise, 0.4f); }
+            if (powerupNoise.name == "slowdown") { powerupSFX.PlayOneShot(powerupNoise, 0.2f); }
             else { powerupSFX.PlayOneShot(powerupNoise); }
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<Renderer>().enabled = false;

@@ -93,7 +93,7 @@ public class PUHeavyScript : MonoBehaviour
             if (powerupNoise.name == "gravity1") { 
                 powerupSFX.PlayOneShot(powerupNoise); 
             }
-            else { powerupSFX.PlayOneShot(powerupNoise, 0.4f); }
+            else { powerupSFX.PlayOneShot(powerupNoise, 0.2f); }
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<Renderer>().enabled = false;
             if (!enemyDebuff)
