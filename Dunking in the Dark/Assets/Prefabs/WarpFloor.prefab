@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7562064968069327524}
   - component: {fileID: 1830606144911046755}
-  - component: {fileID: 1825704383887362674}
   - component: {fileID: 8632395006032626175}
   - component: {fileID: 2649287806593569063}
   - component: {fileID: 5633256569891218879}
@@ -62,18 +61,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 43.67, y: 6.04}
   m_EdgeRadius: 0.24
---- !u!114 &1825704383887362674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16032293285631276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675a7c11cd7c6ac4f9b66d56b0130a82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &8632395006032626175
 AudioSource:
   m_ObjectHideFlags: 0
@@ -85,10 +72,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 64e9b0ccee1b34f5cb22cecd210da559, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.263
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

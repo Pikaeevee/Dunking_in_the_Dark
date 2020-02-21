@@ -805,7 +805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &236302706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +821,8 @@ MonoBehaviour:
   p1Distance: 3
   p2Distance: 3
   goalDistance: 3
-  powerupDistance: 1
+  powerupDistanceDefault: 3
+  powerupDistances: []
   totalLerp: 1
 --- !u!64 &236302707
 MeshCollider:
@@ -1618,7 +1619,7 @@ GameObject:
   - component: {fileID: 476597066}
   m_Layer: 0
   m_Name: dunk_speedup
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1640,6 +1641,8 @@ MonoBehaviour:
   enemyDebuff: 0
   respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
+  darknessSize: 3
+  darknessChangeTime: 1
 --- !u!58 &476597067
 CircleCollider2D:
   m_ObjectHideFlags: 0
