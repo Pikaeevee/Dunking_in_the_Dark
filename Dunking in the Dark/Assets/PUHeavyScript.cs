@@ -30,6 +30,8 @@ public class PUHeavyScript : MonoBehaviour
         }
         
         darkness = GameManager.FindObjectOfType<MatchPlayers>();
+        print("Initializing " + gameObject.name);
+        print("It thinks darkness is " + darkness);
         StartCoroutine(setupObject());
     }
     

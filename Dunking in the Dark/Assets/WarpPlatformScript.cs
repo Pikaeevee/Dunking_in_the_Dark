@@ -19,6 +19,8 @@ public class WarpPlatformScript : MonoBehaviour
     [SerializeField] private Color blinkColor;
 
     private ParticleSystem particles;
+
+    private AudioSource audio;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class WarpPlatformScript : MonoBehaviour
         startColor = transform.parent.GetComponent<SpriteRenderer>().color;
         canTeleport = true;
         particles = GetComponent<ParticleSystem>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -88,6 +91,7 @@ public class WarpPlatformScript : MonoBehaviour
         if (objectsToTeleport.Count != 0)
         {
             particles.Play();
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -135,6 +139,7 @@ public class WarpPlatformScript : MonoBehaviour
                 if (canTeleport)
                 {
                     particles.Play();
+                    audio.Play();
                 }
             }
             print("Player registered");
@@ -153,6 +158,7 @@ public class WarpPlatformScript : MonoBehaviour
                 print("No players left, timer deregistered");
                 timer = -1;
                 particles.Stop();
+                audio.Stop();
             }
         }
     }
