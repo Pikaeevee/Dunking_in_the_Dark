@@ -409,7 +409,8 @@ MonoBehaviour:
   p1Distance: 3
   p2Distance: 3
   goalDistance: 3
-  powerupDistance: 3
+  powerupDistanceDefault: 0
+  powerupDistances: []
   totalLerp: 1
 --- !u!64 &104525341
 MeshCollider:
@@ -1008,11 +1009,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: dunk_slowdown (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8820225504768104449, guid: 6d6347cb6f570a24fac558908b30c929,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d6347cb6f570a24fac558908b30c929, type: 3}
@@ -2770,6 +2766,8 @@ MonoBehaviour:
   enemyDebuff: 0
   respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
+  darknessSize: 3
+  darknessChangeTime: 1
 --- !u!58 &772868123
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5294,6 +5292,8 @@ MonoBehaviour:
   enemyDebuff: 0
   respawnTime: 10
   powerupNoise: {fileID: 8300000, guid: 518d1acc7fa834b7e9599c62027176d0, type: 3}
+  darknessSize: 3
+  darknessChangeTime: 1
 --- !u!58 &1509054167
 CircleCollider2D:
   m_ObjectHideFlags: 0
