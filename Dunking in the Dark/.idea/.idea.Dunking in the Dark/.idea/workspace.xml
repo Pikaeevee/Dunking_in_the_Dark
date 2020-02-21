@@ -85,11 +85,8 @@
         <option value="$PROJECT_DIR$/Assets/DetectScoring.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FollowPlayers.cs" />
         <option value="$PROJECT_DIR$/Assets/GameSetup.cs" />
-        <option value="$PROJECT_DIR$/Assets/PUSpikeScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
         <option value="$PROJECT_DIR$/Assets/PlatformMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DetectScoring.cs" />
-        <option value="$PROJECT_DIR$/Assets/PUHeavyScript.cs" />
         <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/AudioInBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StickyPlatformScript.cs" />
@@ -98,6 +95,9 @@
         <option value="$PROJECT_DIR$/Assets/WarpPlatformScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Shaders/Darkness.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MatchPlayers.cs" />
+        <option value="$PROJECT_DIR$/Assets/PUSpikeScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/PUHeavyScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PUSpeedScript.cs" />
       </list>
     </option>
   </component>
@@ -198,6 +198,7 @@
       <workItem from="1582129689645" duration="1498000" />
       <workItem from="1582131856593" duration="772000" />
       <workItem from="1582236731740" duration="1780000" />
+      <workItem from="1582238748098" duration="3367000" />
     </task>
     <servers />
   </component>

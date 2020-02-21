@@ -15,6 +15,13 @@ public class PUSpeedScript : MonoBehaviour
     private GameObject player;
     private AudioSource powerupSFX;
     public AudioClip powerupNoise;
+    
+    
+
+    private MatchPlayers darkness;
+    private int registeredIndex;
+    public float darknessSize = 3;
+    public float darknessChangeTime = 1;
 
     void Start()
     {
@@ -23,12 +30,65 @@ public class PUSpeedScript : MonoBehaviour
         {
             Debug.LogError("Weirdness in powerup, it's respawning before it has finished");
         }
+
+        darkness = GameManager.FindObjectOfType<MatchPlayers>();
+        StartCoroutine(setupObject());
+    }
+
+    //Setup coroutine to avoid weirdness with registering
+    IEnumerator setupObject()
+    {
+        yield return new WaitForSeconds(.1f);
+        //Register
+        registeredIndex = darkness.Register(this.gameObject);
+        print("Attempting to register powerup. Id is " + registeredIndex);
+        if (registeredIndex == -1)
+        {
+            Debug.LogError("Powerup was unable to correctly register with matchplayers. This is bad. Yell at Woody.");
+        }
+        StartCoroutine(LightsUp(darknessChangeTime));
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator LightsDown(float time)
+    {
+        float timer = 0;
+        yield return null;
+        while (timer < time)
+        {
+            timer += Time.deltaTime;
+            float lerpAmount = timer / time;
+            if (lerpAmount > 1)
+            {
+                lerpAmount = 1;
+            }
+            float amount = Mathf.Lerp(darknessSize,0, lerpAmount);
+            darkness.setPowerupSize(registeredIndex, amount);
+            yield return null;
+        }
+    }
+    
+    IEnumerator LightsUp(float time)
+    {
+        float timer = 0;
+        yield return null;
+        while (timer < time)
+        {
+            timer += Time.deltaTime;
+            float lerpAmount = timer / time;
+            if (lerpAmount > 1)
+            {
+                lerpAmount = 1;
+            }
+            float amount = Mathf.Lerp(0, darknessSize, lerpAmount);
+            darkness.setPowerupSize(registeredIndex, amount);
+            yield return null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,9 +126,9 @@ public class PUSpeedScript : MonoBehaviour
     {
         BallMovement ball = player.GetComponent<BallMovement>();
         ball.speedMultiplier = ball.speedMultiplier * speedMultiplier;
-
+        StartCoroutine(LightsDown(darknessChangeTime));
         yield return new WaitForSeconds(duration);
-
+        
         
 
         ball.speedMultiplier = ball.speedMultiplier / speedMultiplier;
@@ -76,5 +136,7 @@ public class PUSpeedScript : MonoBehaviour
         yield return new WaitForSeconds(respawnTime - duration);
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         gameObject.GetComponent<Renderer>().enabled = true;
+        StartCoroutine(LightsUp(darknessChangeTime));
+        
     }
 }

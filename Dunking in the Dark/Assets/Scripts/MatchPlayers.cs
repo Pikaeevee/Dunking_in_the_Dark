@@ -12,7 +12,10 @@ public class MatchPlayers : MonoBehaviour
     public float p2Distance;
     public float goalDistance;
     private float[] array;
-    public float powerupDistance = 1;
+    public float powerupDistanceDefault;
+    public float[] powerupDistances;
+    private GameObject[] powerups;
+    
 
     [HideInInspector] public float totalLerp = 1;
     
@@ -25,7 +28,7 @@ public class MatchPlayers : MonoBehaviour
     private static readonly int GoalRad = Shader.PropertyToID("_GoalRad");
     private static readonly int Array = Shader.PropertyToID("_Array");
     private static readonly int ArrayLength = Shader.PropertyToID("_ArrayLength");
-    private static readonly int PowRad = Shader.PropertyToID("_PowRad");
+    private static readonly int Dists = Shader.PropertyToID("_Dists");
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +39,18 @@ public class MatchPlayers : MonoBehaviour
         goal = GameObject.FindGameObjectWithTag("Goal");
         
 
-        GameObject[] powerups = GameObject.FindGameObjectsWithTag("Powerup");
+        powerups = GameObject.FindGameObjectsWithTag("Powerup");
+        if (powerups.Length > 10)
+        {
+            Debug.LogError("The darkness shader cannot handle >10 objects! This is easily fixable, though, so yell at Woody and make him fix it.");
+        }
+        
+        powerupDistances = new float[powerups.Length];
+        for (int i = 0; i < powerups.Length; i++)
+        {
+            powerupDistances[i] = powerupDistanceDefault;
+        }
+        
         array = new float[powerups.Length * 2];
         for (int i = 0; i < powerups.Length; i++)
         {
@@ -45,9 +59,35 @@ public class MatchPlayers : MonoBehaviour
         }
     }
 
+    public int Register(GameObject g)
+    {
+        for (int i = 0; i < powerups.Length; i++)
+        {
+            if (g == powerups[i])
+            {
+                return i;
+            }
+        }
+        Debug.LogError("Powerup not found!");
+        return -1;
+    }
+
+    public void setPowerupSize(int index, float size)
+    {
+        powerupDistances[index] = size;
+    }
+    
+    
+
     // Update is called once per frame
     void Update()
     {
+        float[] actualDist = new float[powerupDistances.Length];
+        for (int i = 0; i < powerupDistances.Length; i++)
+        {
+            actualDist[i] = powerupDistances[i] * totalLerp;
+        }
+        
         Vector4 posOne = playerOne.transform.position;
         Vector4 posTwo = playerTwo.transform.position;
         Vector4 posGoal = goal.transform.position;
@@ -58,7 +98,7 @@ public class MatchPlayers : MonoBehaviour
         mat.SetVector(PosGoal, posGoal);
         mat.SetFloat(GoalRad, goalDistance * totalLerp);
         
-        mat.SetFloat(PowRad, powerupDistance);
+        mat.SetFloatArray(Dists, actualDist);
         mat.SetInt(ArrayLength, array.Length);
         mat.SetFloatArray(Array, array);
     }

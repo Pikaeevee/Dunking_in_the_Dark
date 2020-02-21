@@ -12,8 +12,6 @@ Shader "Unlit/Darkness"
 		_TwoRad("Character 2 Radius", Float) = 5
 		_PosGoal("Goal Position", Float) = (0,0,0,0)
 		_GoalRad("Goal Show Radius", Float) = 0
-		
-		_PowRad("Powerup Show Radius", Float) = 0
 	}
 		SubShader
 	{
@@ -38,10 +36,10 @@ Shader "Unlit/Darkness"
 
 			uniform float4 _PosGoal;
 			uniform float _GoalRad;
-			uniform float _PowRad;
 			
 			int _ArrayLength = 1;
 			float _Array[20];
+			float _Dists[10];
 
 				struct vertexInput {
 				float4 vertex : POSITION;
@@ -86,7 +84,7 @@ Shader "Unlit/Darkness"
 					    
 					    float dist = distance(input.position_in_world_space.rg, pos);
 					    
-					    hasFour = hasFour * step(_PowRad, dist);
+					    hasFour = hasFour * step(_Dists[i/2], dist);
 					}
 					
 					float canHide = hasOne * hasTwo * hasThree * hasFour;

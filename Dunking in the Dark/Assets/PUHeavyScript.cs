@@ -15,6 +15,11 @@ public class PUHeavyScript : MonoBehaviour
     private GameObject player;
     private AudioSource powerupSFX;
     public AudioClip powerupNoise;
+    
+    private MatchPlayers darkness;
+    private int registeredIndex;
+    public float darknessSize = 3;
+    public float darknessChangeTime = 1;
 
     void Start()
     {
@@ -23,12 +28,60 @@ public class PUHeavyScript : MonoBehaviour
         {
             Debug.LogError("Weirdness in powerup, it's respawning before it has finished");
         }
+        
+        darkness = GameManager.FindObjectOfType<MatchPlayers>();
+        StartCoroutine(setupObject());
+    }
+    
+    IEnumerator setupObject()
+    {
+        yield return new WaitForSeconds(.1f);
+        //Register
+        registeredIndex = darkness.Register(this.gameObject);
+        print("Attempting to register powerup. Id is " + registeredIndex);
+        StartCoroutine(LightsUp(darknessChangeTime));
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    
+    IEnumerator LightsDown(float time)
+    {
+        float timer = 0;
+        yield return null;
+        while (timer < time)
+        {
+            timer += Time.deltaTime;
+            float lerpAmount = timer / time;
+            if (lerpAmount > 1)
+            {
+                lerpAmount = 1;
+            }
+            float amount = Mathf.Lerp(darknessSize,0, lerpAmount);
+            darkness.setPowerupSize(registeredIndex, amount);
+            yield return null;
+        }
+    }
+    
+    IEnumerator LightsUp(float time)
+    {
+        float timer = 0;
+        yield return null;
+        while (timer < time)
+        {
+            timer += Time.deltaTime;
+            float lerpAmount = timer / time;
+            if (lerpAmount > 1)
+            {
+                lerpAmount = 1;
+            }
+            float amount = Mathf.Lerp(0, darknessSize, lerpAmount);
+            darkness.setPowerupSize(registeredIndex, amount);
+            yield return null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,6 +117,7 @@ public class PUHeavyScript : MonoBehaviour
     //Changes made here, so that the speed multipliers correctly stack and de-stack
     IEnumerator StartEffect()
     {
+        StartCoroutine(LightsDown(darknessChangeTime));
         Rigidbody2D rig = player.GetComponent<Rigidbody2D>();
         rig.gravityScale = gravityMultiplier * rig.gravityScale;
 
@@ -76,5 +130,6 @@ public class PUHeavyScript : MonoBehaviour
         yield return new WaitForSeconds(respawnTime - duration);
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         gameObject.GetComponent<Renderer>().enabled = true;
+        StartCoroutine(LightsUp(darknessChangeTime));
     }
 }
