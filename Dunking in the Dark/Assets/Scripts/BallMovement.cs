@@ -12,6 +12,9 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private Vector2 howCloseToJump;
     public float stickySpeed = 0.5f; // multiplier to normal velocity
 
+    public AudioClip bump;
+    private AudioSource sfx;
+
     public bool onIce = false;
     private float endingIce = -1.0f;
     public bool onSticky = false;
@@ -66,6 +69,7 @@ public class BallMovement : MonoBehaviour
         playerCol = GetComponent<SpriteRenderer>().color;
         tailCol = GetComponent<TrailRenderer>().startColor;
         collisionSpeed = 0;
+        sfx = Camera.main.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -219,6 +223,7 @@ public class BallMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
         {
+            sfx.PlayOneShot(bump);
             if (isSpikey)
             {
                 //Pop the other player!

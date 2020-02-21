@@ -20,4 +20,10 @@ public class startmenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void InstructionsMenu()
+    {
+        Debug.Log("going to instructions");
+        SceneManager.LoadScene("Instructions");
+    }
+
 }
