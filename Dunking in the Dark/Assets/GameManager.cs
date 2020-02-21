@@ -387,19 +387,18 @@ public class GameManager : MonoBehaviour
     {
         print("Respawning Players!");
         //Set the players positions!
-        Vector3 newPos = Vector3.zero;
-        if (respawnRandomly)
+        int p1spot = Random.Range(0, respawnPoints.Length);
+        int p2spot = Random.Range(0, respawnPoints.Length);
+        while (p1spot == p2spot)
         {
-            float x = transform.position.x + Random.Range(-1 * respawnBoxDimensions.x, respawnBoxDimensions.x);
-            float y = transform.position.y + Random.Range(-1 * respawnBoxDimensions.y, respawnBoxDimensions.y);
-            newPos = new Vector3(x, y, 2);
+            //Reroll for new spot
+            p2spot = Random.Range(0, respawnPoints.Length);
         }
-        else
-        {
-            newPos = respawnPoints[Random.Range(0, respawnPoints.Length)];
-        }
-        p1.transform.position = newPos + new Vector3(-1, 0, 0);
-        p2.transform.position = newPos + new Vector3(1, 0, 0);
+        
+        
+
+        p1.transform.position = respawnPoints[p1spot];
+        p2.transform.position = respawnPoints[p2spot];
         print("Players Respawned");
     }
 
