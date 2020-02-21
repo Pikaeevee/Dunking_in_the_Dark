@@ -122,7 +122,7 @@ MonoBehaviour:
   jumpSpeed: 30
   howCloseToJump: {x: 0, y: -0.75}
   stickySpeed: 0.3
-  bump: {fileID: 0}
+  bump: {fileID: 8300000, guid: 17c4aec9d61c4445b937a0e8a71fc26f, type: 3}
   onIce: 0
   onSticky: 0
   jumpWait: 0.05
