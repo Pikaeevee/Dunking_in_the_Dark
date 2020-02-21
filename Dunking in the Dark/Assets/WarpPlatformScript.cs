@@ -36,6 +36,7 @@ public class WarpPlatformScript : MonoBehaviour
         canTeleport = true;
         particles = GetComponent<ParticleSystem>();
         audio = GetComponent<AudioSource>();
+        audio.loop = false;
     }
 
     // Update is called once per frame
@@ -158,7 +159,7 @@ public class WarpPlatformScript : MonoBehaviour
                 print("No players left, timer deregistered");
                 timer = -1;
                 particles.Stop();
-                audio.Stop();
+                //audio.Stop();
             }
         }
     }

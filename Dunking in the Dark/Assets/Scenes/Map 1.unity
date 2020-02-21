@@ -2517,7 +2517,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bump
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 17c4aec9d61c4445b937a0e8a71fc26f, type: 3}
     - target: {fileID: 5528262515591033513, guid: 13134688209f1b9499287aa8f0453be5,
         type: 3}
       propertyPath: m_Name
