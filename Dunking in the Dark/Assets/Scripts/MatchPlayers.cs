@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +30,11 @@ public class MatchPlayers : MonoBehaviour
     private static readonly int Array = Shader.PropertyToID("_Array");
     private static readonly int ArrayLength = Shader.PropertyToID("_ArrayLength");
     private static readonly int Dists = Shader.PropertyToID("_Dists");
+
+    private void Awake()
+    {
+        this.gameObject.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
