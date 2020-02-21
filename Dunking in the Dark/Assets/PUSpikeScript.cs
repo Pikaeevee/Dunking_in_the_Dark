@@ -22,7 +22,6 @@ public class PUSpikeScript : MonoBehaviour
     void Start()
     {
         powerupSFX = Camera.main.GetComponent<AudioSource>(); //GetComponent<AudioSource>();
-        powerupSFX.volume = 0.5f;
         if (duration > respawnTime)
         {
             Debug.LogError("Weirdness in powerup, it's respawning before it has finished");
@@ -87,7 +86,7 @@ public class PUSpikeScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
         {
-            powerupSFX.PlayOneShot(spikeNoise);
+            powerupSFX.PlayOneShot(spikeNoise, 0.6f);
             //Hide this objects
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<Renderer>().enabled = false;
